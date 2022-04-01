@@ -1,7 +1,6 @@
 package com.carshoptiger.configuration;
 
-import com.carshoptiger.repository.UserRepository;
-import com.carshoptiger.repository.UserRepositoryImpl;
+import com.carshoptiger.repository.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -32,5 +31,15 @@ public class BeanConfig {
     @Bean
     public UserRepository userRepository(){
         return new UserRepositoryImpl(database());
+    }
+
+    @Bean
+    public ContactsRepository contactsRepository(){
+        return new ContactsRepositoryImpl(database());
+    }
+
+    @Bean
+    public TestimonalsRepository testimonalsRepository(){
+        return new TestimonalsRepositoryImpl(database());
     }
 }
