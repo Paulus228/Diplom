@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-class User {
+public class User {
     private Long id;
     private String name;
     private String soname;

@@ -8,6 +8,8 @@ public class TigerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TigerApplication.class, args);
+
+
 	}
 
 }
