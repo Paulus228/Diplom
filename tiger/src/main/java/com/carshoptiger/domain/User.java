@@ -2,8 +2,6 @@ package com.carshoptiger.domain;
 
 import lombok.*;
 
-import java.util.Set;
-
 
 @Getter
 @Setter
@@ -17,7 +15,7 @@ class User {
     private String soname;
     private String username;
     private String password;
-    private Set<Role> roles;
+    private Role roles;
     private String email;
     private String activationcode;
 
