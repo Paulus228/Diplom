@@ -3,6 +3,8 @@ package com.carshoptiger.domain;
 
 import lombok.*;
 
+import java.sql.Date;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -15,5 +17,5 @@ public class Contacts {
     private String email;
     private String subject;
     private String message;
-
+    private Date date_send;
 }
