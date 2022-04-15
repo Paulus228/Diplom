@@ -1,4 +1,4 @@
-package com.carshoptiger.repository;
+package com.carshoptiger.repository.API;
 
 import com.carshoptiger.domain.User;
 

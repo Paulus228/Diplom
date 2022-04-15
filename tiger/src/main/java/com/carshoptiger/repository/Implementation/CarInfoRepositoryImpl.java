@@ -1,12 +1,13 @@
-package com.carshoptiger.repository;
+package com.carshoptiger.repository.Implementation;
 
 import com.carshoptiger.domain.CarInfo;
+import com.carshoptiger.repository.API.CarInfoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 @AllArgsConstructor
-public class CarInfoRepositoryImpl implements CarInfoRepository{
+public class CarInfoRepositoryImpl implements CarInfoRepository {
 
     private final JdbcTemplate databaseMysql;
 

@@ -1,6 +1,7 @@
-package com.carshoptiger.repository;
+package com.carshoptiger.repository.Implementation;
 
 import com.carshoptiger.domain.Basket;
+import com.carshoptiger.repository.API.BasketRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -9,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 @AllArgsConstructor
-public class BasketRepositoryImpl implements BasketRepository{
+public class BasketRepositoryImpl implements BasketRepository {
     private final JdbcTemplate databaseMysql;
 
     @Override

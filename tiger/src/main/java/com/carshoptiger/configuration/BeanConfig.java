@@ -1,6 +1,7 @@
 package com.carshoptiger.configuration;
 
-import com.carshoptiger.repository.*;
+import com.carshoptiger.repository.API.*;
+import com.carshoptiger.repository.Implementation.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;

@@ -1,6 +1,7 @@
-package com.carshoptiger.repository;
+package com.carshoptiger.repository.Implementation;
 
 import com.carshoptiger.domain.Contacts;
+import com.carshoptiger.repository.API.ContactsRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -8,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
 
 @AllArgsConstructor
-public class ContactsRepositoryImpl implements ContactsRepository{
+public class ContactsRepositoryImpl implements ContactsRepository {
 
     private final JdbcTemplate databaseMysql;
 

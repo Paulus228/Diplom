@@ -1,6 +1,7 @@
-package com.carshoptiger.repository;
+package com.carshoptiger.repository.Implementation;
 
 import com.carshoptiger.domain.User;
+import com.carshoptiger.repository.API.UserRepository;
 import com.carshoptiger.util.exception.UserNotFound;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
