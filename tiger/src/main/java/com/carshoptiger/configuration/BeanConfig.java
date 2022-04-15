@@ -46,6 +46,9 @@ public class BeanConfig {
     }
 
     @Bean
+    public CarPhotoRepository carPhotoRepository(){return new CarPhotoRepositoryImpl(database());}
+
+    @Bean
     public ContactsRepository contactsRepository(){
         return new ContactsRepositoryImpl(database());
     }
