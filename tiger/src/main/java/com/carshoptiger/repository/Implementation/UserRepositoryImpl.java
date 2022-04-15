@@ -2,7 +2,7 @@ package com.carshoptiger.repository.Implementation;
 
 import com.carshoptiger.domain.User;
 import com.carshoptiger.repository.API.UserRepository;
-import com.carshoptiger.util.exception.UserNotFound;
+import com.carshoptiger.util.exception.UserNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -41,7 +41,7 @@ public final class UserRepositoryImpl implements UserRepository {
         String findname = "%" + username + "%";
         try {
             return databaseMysql.queryForObject("select * from user where username=?", new BeanPropertyRowMapper<>(User.class), findname);
-        } catch (UserNotFound userNotFound) {
+        } catch (UserNotFoundException userNotFoundException) {
             return null;
         }
     }
@@ -50,7 +50,7 @@ public final class UserRepositoryImpl implements UserRepository {
     public User getuserbyid(Long id) {
         try {
             return databaseMysql.queryForObject("select * from user where id =?", new BeanPropertyRowMapper<>(User.class), id);
-        }catch (UserNotFound userNotFound){
+        }catch (UserNotFoundException userNotFoundException){
             return null;
         }
     }

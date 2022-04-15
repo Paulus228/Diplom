@@ -2,6 +2,7 @@ package com.carshoptiger.repository.Implementation;
 
 import com.carshoptiger.domain.Car;
 import com.carshoptiger.repository.API.CarRepository;
+import com.carshoptiger.util.exception.CarNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -42,6 +43,10 @@ public class CarRepositoryImpl implements CarRepository {
     @Override
     public List<Car> findCarByName(String name) {
         String namefind = "%"+name+"%";
-        return databaseMysql.query("SELECT * FROM car WHERE name LIKE ?",new BeanPropertyRowMapper<>(Car.class),namefind);
+        try {
+            return databaseMysql.query("SELECT * FROM car WHERE name LIKE ?", new BeanPropertyRowMapper<>(Car.class), namefind);
+        }catch (CarNotFoundException carNotFoundException){
+            return null;
+        }
     }
 }
