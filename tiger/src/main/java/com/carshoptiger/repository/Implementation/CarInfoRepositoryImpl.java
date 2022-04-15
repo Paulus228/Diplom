@@ -2,6 +2,7 @@ package com.carshoptiger.repository.Implementation;
 
 import com.carshoptiger.domain.CarInfo;
 import com.carshoptiger.repository.API.CarInfoRepository;
+import com.carshoptiger.util.exception.CarNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -31,7 +32,11 @@ public class CarInfoRepositoryImpl implements CarInfoRepository {
 
     @Override
     public CarInfo getonecarinfobycarid(Long id_car) {
-        return databaseMysql.queryForObject("SELECT * FROM carinfo WHERE id_car=?",new BeanPropertyRowMapper<>(CarInfo.class),id_car);
+        try {
+            return databaseMysql.queryForObject("SELECT * FROM carinfo WHERE id_car=?", new BeanPropertyRowMapper<>(CarInfo.class), id_car);
+        }catch (CarNotFoundException carNotFoundException){
+            return null;
+        }
     }
 
     @Override
