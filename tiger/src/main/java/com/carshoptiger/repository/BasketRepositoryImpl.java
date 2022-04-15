@@ -13,16 +13,16 @@ public class BasketRepositoryImpl implements BasketRepository{
     private final JdbcTemplate databaseMysql;
 
     @Override
-    public int save(Basket basket, Long id_user) {
+    public boolean save(Basket basket, Long id_user) {
         return databaseMysql.update("INSERT INTO basketcar(id_basket_user,id_car,date_add) VALUES(" +
                 "(SELECT id_basket FROM basketuser WHERE id_user = ?),?,?)",
-                id_user,basket.getId_car(), new Date());
+                id_user,basket.getId_car(), new Date())>0;
     }
 
     @Override
-    public int delete(Basket basket, Long id_user) {
+    public boolean delete(Basket basket, Long id_user) {
         return databaseMysql.update("DELETE FROM basketcar WHERE ctid IN(SELECT ctid FROM basketcar" +
-                " WHERE id_basket_user=(SELECT id_basket FROM basketuser WHERE id_user = ?) AND id_car=? LIMIT 1",id_user,basket.getId_car());
+                " WHERE id_basket_user=(SELECT id_basket FROM basketuser WHERE id_user = ?) AND id_car=? LIMIT 1",id_user,basket.getId_car())>0;
     }
 
     @Override
@@ -32,12 +32,12 @@ public class BasketRepositoryImpl implements BasketRepository{
     }
 
     @Override
-    public int InitBasket(Long id_user) {
-        return databaseMysql.update("INSERT INTO basket_user(id_user) VALUES(?)");
+    public boolean InitBasket(Long id_user) {
+        return databaseMysql.update("INSERT INTO basket_user(id_user) VALUES(?)")>0;
     }
 
     @Override
-    public int DestroyBasket(Long id_user) {
-        return databaseMysql.update("DELETE FROM basketcar WHERE id_basket_user=(SELECT id_basket FROM basketuser WHERE id_user = ?)",id_user);
+    public boolean DestroyBasket(Long id_user) {
+        return databaseMysql.update("DELETE FROM basketcar WHERE id_basket_user=(SELECT id_basket FROM basketuser WHERE id_user = ?)",id_user)>0;
     }
 }

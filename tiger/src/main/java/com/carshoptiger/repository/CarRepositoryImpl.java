@@ -1,0 +1,46 @@
+package com.carshoptiger.repository;
+
+import com.carshoptiger.domain.Car;
+import lombok.AllArgsConstructor;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
+
+@AllArgsConstructor
+public class CarRepositoryImpl implements CarRepository{
+
+    private final JdbcTemplate databaseMysql;
+
+    @Override
+    public boolean savecar(Car car) {
+        return databaseMysql.update("INSERT INTO car(name,price,date_add,count_buy,description)VALUES(?,?,?,?,?)",
+                car.getName(),car.getPrice(),car.getDate_add(),car.getCount_buy(),car.getDescription())>0;
+    }
+
+    @Override
+    public boolean updatecar(Car car) {
+        return databaseMysql.update("UPDATE car SET name=?,price=?,count_buy=?,description=? WHERE id=?")>0;
+    }
+
+    @Override
+    public boolean deletecar(Long id_car) {
+        return databaseMysql.update("DELETE FROM car WHERE id = ?",id_car)>0;
+    }
+
+    @Override
+    public Car getonecar(Long id_car) {
+        return databaseMysql.queryForObject("SELECT * FROM car WHERE id = ?",new BeanPropertyRowMapper<>(Car.class),id_car);
+    }
+
+    @Override
+    public List<Car> findAllCar() {
+        return databaseMysql.query("SELECT * FROM car",new BeanPropertyRowMapper<>(Car.class));
+    }
+
+    @Override
+    public List<Car> findCarByName(String name) {
+        String namefind = "%"+name+"%";
+        return databaseMysql.query("SELECT * FROM car WHERE name LIKE ?",new BeanPropertyRowMapper<>(Car.class),namefind);
+    }
+}
