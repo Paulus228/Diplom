@@ -3,7 +3,9 @@ package com.carshoptiger.configuration;
 import com.carshoptiger.repository.API.*;
 import com.carshoptiger.repository.Implementation.*;
 import com.carshoptiger.service.API.CarService;
+import com.carshoptiger.service.API.UserService;
 import com.carshoptiger.service.Implementation.CarServiceImpl;
+import com.carshoptiger.service.Implementation.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -65,4 +67,9 @@ public class BeanConfig {
     public CarService carService(){
         return new CarServiceImpl(carRepository());
     }
+
+    @Bean
+    public UserService userService(){return new UserServiceImpl(userRepository());
+    }
+
 }
