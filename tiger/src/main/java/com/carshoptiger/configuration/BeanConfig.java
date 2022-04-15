@@ -41,6 +41,11 @@ public class BeanConfig {
     public CarExtractRepository carExtractRepository(){return new CarExtractRepositoryImpl(database());}
 
     @Bean
+    public CarInfoRepository carInfoRepository(){
+        return new CarInfoRepositoryImpl(database());
+    }
+
+    @Bean
     public ContactsRepository contactsRepository(){
         return new ContactsRepositoryImpl(database());
     }

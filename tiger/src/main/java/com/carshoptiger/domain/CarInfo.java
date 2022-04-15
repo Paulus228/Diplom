@@ -15,6 +15,7 @@ public class CarInfo {
     private Long id_car;
     private String type;
     private String make;
+    private String model;
     private Date first_reg;
     private Integer mileage;
     private String fuel;
