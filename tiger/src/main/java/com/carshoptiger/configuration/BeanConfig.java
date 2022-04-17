@@ -97,4 +97,7 @@ public class BeanConfig {
     public CarInfoService carInfoService(){
         return new CarInfoServiceImpl(carInfoRepository(),carService());
     }
+
+    @Bean
+    public OrderSerivce orderSerivce(){return new OrderServiceImpl(orderRepository(),carService());}
 }
