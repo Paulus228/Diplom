@@ -2,14 +2,8 @@ package com.carshoptiger.configuration;
 
 import com.carshoptiger.repository.API.*;
 import com.carshoptiger.repository.Implementation.*;
-import com.carshoptiger.service.API.CarService;
-import com.carshoptiger.service.API.ContactService;
-import com.carshoptiger.service.API.TestimonalsService;
-import com.carshoptiger.service.API.UserService;
-import com.carshoptiger.service.Implementation.CarServiceImpl;
-import com.carshoptiger.service.Implementation.ContactServiceImpl;
-import com.carshoptiger.service.Implementation.TestimonalsServiceImpl;
-import com.carshoptiger.service.Implementation.UserServiceImpl;
+import com.carshoptiger.service.API.*;
+import com.carshoptiger.service.Implementation.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -82,5 +76,9 @@ public class BeanConfig {
 
     @Bean
     public ContactService contactService(){return new ContactServiceImpl(contactsRepository());
+    }
+
+    @Bean
+    public CarPhotoService carPhotoService(){return new CarPhotoServiceImpl(carPhotoRepository(),carService());
     }
 }
