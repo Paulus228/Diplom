@@ -6,6 +6,7 @@ import com.carshoptiger.service.API.TestimonalsService;
 import com.carshoptiger.util.validators.TestimonalsValidator;
 import lombok.AllArgsConstructor;
 
+import java.sql.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -17,6 +18,7 @@ public class TestimonalsServiceImpl implements TestimonalsService {
     public boolean savetestimonals(Testimonals testimonals) {
         boolean result_save;
         if(TestimonalsValidator.TestimonalsValidation(testimonals)){
+            testimonals.setDate_send(new Date(new java.util.Date().getTime()));
             result_save = testimonalsRepository.savetestimonals(testimonals);
         }else{
             result_save=false;

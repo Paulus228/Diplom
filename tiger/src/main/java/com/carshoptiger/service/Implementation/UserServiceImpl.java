@@ -2,10 +2,12 @@ package com.carshoptiger.service.Implementation;
 
 import com.carshoptiger.domain.User;
 import com.carshoptiger.repository.API.UserRepository;
+import com.carshoptiger.service.API.BasketService;
 import com.carshoptiger.service.API.UserService;
 import com.carshoptiger.util.validators.UserValidator;
 import lombok.AllArgsConstructor;
 
+import java.sql.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -13,13 +15,17 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
+    private final BasketService basketService;
+
     @Override
     public boolean saveuser(User user) {
         boolean result_save;
         User userIsexists = userRepository.findUserByUsername(user.getUsername());
         if(userIsexists==null){
             if(UserValidator.UserValidation(user)){
+                user.setDate_add(new Date(new java.util.Date().getTime()));
                 result_save = userRepository.saveuser(user);
+                basketService.InitBasket(userRepository.findUserByUsername(user.getUsername()).getId());
             }else{
                 result_save=false;
             }

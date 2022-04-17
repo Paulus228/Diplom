@@ -67,7 +67,7 @@ public class BeanConfig {
     }
 
     @Bean
-    public UserService userService(){return new UserServiceImpl(userRepository());
+    public UserService userService(){return new UserServiceImpl(userRepository(),basketService());
     }
 
     @Bean

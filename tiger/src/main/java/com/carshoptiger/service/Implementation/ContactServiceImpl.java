@@ -6,6 +6,7 @@ import com.carshoptiger.service.API.ContactService;
 import com.carshoptiger.util.validators.ContactValidator;
 import lombok.AllArgsConstructor;
 
+import java.sql.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -17,6 +18,7 @@ public class ContactServiceImpl implements ContactService {
     public boolean savecontact(Contacts contact) {
         boolean result_save;
         if(ContactValidator.ContactValidation(contact)){
+            contact.setDate_send(new Date(new java.util.Date().getTime()));
             result_save = contactsRepository.savecontact(contact);
         }else{
             result_save = false;

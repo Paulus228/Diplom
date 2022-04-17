@@ -2,6 +2,8 @@ package com.carshoptiger.domain;
 
 import lombok.*;
 
+import java.sql.Date;
+
 
 @Getter
 @Setter
@@ -18,6 +20,6 @@ public class User {
     private Role roles;
     private String email;
     private String activationcode;
-
+    private Date date_add;
 
 }
