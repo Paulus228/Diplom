@@ -81,4 +81,7 @@ public class BeanConfig {
     @Bean
     public CarPhotoService carPhotoService(){return new CarPhotoServiceImpl(carPhotoRepository(),carService());
     }
+
+    @Bean
+    public CarExtractService carExtractService(){return new CarExtractServiceImpl(carExtractRepository(),carService());}
 }
