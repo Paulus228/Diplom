@@ -89,4 +89,9 @@ public class BeanConfig {
     public BasketService basketService(){
         return new BasketServiceImpl(basketRepository(),userService(),carService());
     }
+
+    @Bean
+    public CarInfoService carInfoService(){
+        return new CarInfoServiceImpl(carInfoRepository(),carService());
+    }
 }
