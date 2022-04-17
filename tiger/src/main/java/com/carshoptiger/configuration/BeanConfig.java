@@ -3,8 +3,10 @@ package com.carshoptiger.configuration;
 import com.carshoptiger.repository.API.*;
 import com.carshoptiger.repository.Implementation.*;
 import com.carshoptiger.service.API.CarService;
+import com.carshoptiger.service.API.TestimonalsService;
 import com.carshoptiger.service.API.UserService;
 import com.carshoptiger.service.Implementation.CarServiceImpl;
+import com.carshoptiger.service.Implementation.TestimonalsServiceImpl;
 import com.carshoptiger.service.Implementation.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -72,4 +74,7 @@ public class BeanConfig {
     public UserService userService(){return new UserServiceImpl(userRepository());
     }
 
+    @Bean
+    public TestimonalsService testimonalsService(){return new TestimonalsServiceImpl(testimonalsRepository());
+    }
 }
