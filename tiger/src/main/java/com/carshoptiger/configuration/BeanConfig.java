@@ -62,6 +62,9 @@ public class BeanConfig {
     }
 
     @Bean
+    public OrderRepository orderRepository(){return new OrderRepositoryImpl(database());}
+
+    @Bean
     public CarService carService(){
         return new CarServiceImpl(carRepository());
     }

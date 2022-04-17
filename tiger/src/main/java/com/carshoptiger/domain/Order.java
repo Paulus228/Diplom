@@ -12,6 +12,7 @@ import java.sql.Date;
 @EqualsAndHashCode
 public class Order {
     private Long id;
+    private Long id_car;
     private String name;
     private String soname;
     private String faname;
