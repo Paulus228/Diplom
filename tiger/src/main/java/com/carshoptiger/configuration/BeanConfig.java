@@ -84,4 +84,9 @@ public class BeanConfig {
 
     @Bean
     public CarExtractService carExtractService(){return new CarExtractServiceImpl(carExtractRepository(),carService());}
+
+    @Bean
+    public BasketService basketService(){
+        return new BasketServiceImpl(basketRepository(),userService(),carService());
+    }
 }
