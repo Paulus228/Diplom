@@ -39,6 +39,17 @@ public class AdminController {
         model.addAttribute("sales", (int) orderSerivce.findAllOrder().stream().filter(o1 -> o1.getStatus_order().equals("sales")).count());
         model.addAttribute("latestorder",orderSerivce.findAllOrder().stream().limit(9).collect(Collectors.toList()));
         model.addAttribute("carservice",carService);
-        return "admin/adminhome";
+        return "admin/admin_home";
+    }
+
+    @GetMapping("/carlist")
+    public String carlist(Model model){
+        model.addAttribute("carlist",carService.findAllCar());
+        return "admin/admin_list_of_car";
+    }
+
+    @GetMapping("/carlist/add")
+    public String caraddpage(){
+        return "admin_add_car";
     }
 }

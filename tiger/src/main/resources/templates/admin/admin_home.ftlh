@@ -37,7 +37,7 @@
                 </li>
 
                 <li class="sidebar-item active">
-                    <a class="sidebar-link" href="index.html">
+                    <a class="sidebar-link" href="/admin/">
                         <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
                     </a>
                 </li>
@@ -62,7 +62,7 @@
                     Lists
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="pages-blank.html">
+                    <a class="sidebar-link" href="/admin/carlist">
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of car</span>
                     </a>
                 </li>
