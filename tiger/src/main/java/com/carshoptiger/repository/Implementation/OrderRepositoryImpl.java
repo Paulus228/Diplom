@@ -17,15 +17,15 @@ public class OrderRepositoryImpl implements OrderRepository {
     @Override
     public boolean saveorder(Order order) {
         return databaseMysql.update("INSERT INTO orders(id_car,name, soname, faname, priceorder, country, " +
-                        "city, address, contactphone, commentorder, date_order)VALUES(?,?,?,?,?,?,?,?,?,?,?)",
+                        "city, address, contactphone, commentorder, date_order,status_order)VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",
                 order.getId_car(), order.getName(), order.getSoname(), order.getFaname(), order.getPriceorder(), order.getCountry(), order.getCity(),
-                order.getAddress(), order.getContactphone(), order.getCommentorder(), order.getDate_order()) > 0;
+                order.getAddress(), order.getContactphone(), order.getCommentorder(), order.getDate_order(),order.getStatus_order()) > 0;
     }
 
     @Override
     public boolean updateorder(Order order) {
         return databaseMysql.update("UPDATE orders SET name=?, soname=?, faname=?, country=?," +
-                        "city=?, address=?, contactphone=? WHERE id = ?", order.getName(), order.getSoname(),
+                        "city=?, address=?, contactphone=?,status_order=? WHERE id = ?", order.getName(), order.getSoname(),
                 order.getFaname(), order.getCountry(), order.getCity(), order.getAddress(), order.getContactphone(), order.getId()) > 0;
     }
 

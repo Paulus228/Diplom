@@ -7,19 +7,22 @@ import com.carshoptiger.repository.API.BasketRepository;
 import com.carshoptiger.service.API.BasketService;
 import com.carshoptiger.service.API.CarService;
 import com.carshoptiger.service.API.UserService;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Date;
 import java.util.List;
 
-@AllArgsConstructor
+
 public class BasketServiceImpl implements BasketService {
 
-    private final BasketRepository basketRepository;
+    @Autowired
+    private  BasketRepository basketRepository;
 
-    private final UserService userService;
+    @Autowired
+    private UserService userService;
 
-    private final CarService carService;
+    @Autowired
+    private CarService carService;
 
     @Override
     public boolean save(Basket basket, Long id_user) {

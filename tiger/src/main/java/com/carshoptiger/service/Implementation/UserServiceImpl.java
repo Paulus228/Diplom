@@ -5,17 +5,19 @@ import com.carshoptiger.repository.API.UserRepository;
 import com.carshoptiger.service.API.BasketService;
 import com.carshoptiger.service.API.UserService;
 import com.carshoptiger.util.validators.UserValidator;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Date;
 import java.util.List;
 
-@AllArgsConstructor
+
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-    private final BasketService basketService;
+    @Autowired
+    private BasketService basketService;
 
     @Override
     public boolean saveuser(User user) {

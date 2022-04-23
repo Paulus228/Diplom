@@ -23,4 +23,5 @@ public class Order {
     private String contactphone;
     private String commentorder;
     private Date date_order;
+    private String status_order;
 }

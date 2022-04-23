@@ -1,4 +1,4 @@
-package com.carshoptiger.configuration;
+package com.carshoptiger.config;
 
 import com.carshoptiger.repository.API.*;
 import com.carshoptiger.repository.Implementation.*;
@@ -7,7 +7,9 @@ import com.carshoptiger.service.Implementation.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -17,9 +19,9 @@ public class BeanConfig {
     public DataSource mysqlDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/springjdbc");
-        dataSource.setUsername("guest_user");
-        dataSource.setPassword("guest_password");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/carshoptiger");
+        dataSource.setUsername("root");
+        dataSource.setPassword("1234");
 
         return dataSource;
     }
@@ -70,7 +72,7 @@ public class BeanConfig {
     }
 
     @Bean
-    public UserService userService(){return new UserServiceImpl(userRepository(),basketService());
+    public UserService userService(){return new UserServiceImpl();
     }
 
     @Bean
@@ -90,7 +92,7 @@ public class BeanConfig {
 
     @Bean
     public BasketService basketService(){
-        return new BasketServiceImpl(basketRepository(),userService(),carService());
+        return new BasketServiceImpl();
     }
 
     @Bean
@@ -100,4 +102,10 @@ public class BeanConfig {
 
     @Bean
     public OrderSerivce orderSerivce(){return new OrderServiceImpl(orderRepository(),carService());}
+
+    @Bean
+    public PlatformTransactionManager transactionManager(DataSource dataSource)
+    {
+        return new DataSourceTransactionManager(dataSource);
+    }
 }
