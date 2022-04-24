@@ -84,7 +84,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="pages-blank.html">
+                    <a class="sidebar-link" href="/admin/contactlist/">
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of contacts</span>
                     </a>
                 </li>

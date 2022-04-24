@@ -7,33 +7,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
     <meta name="author" content="AdminKit">
-    <meta name="keywords"
-          content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+    <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png"/>
+    <link rel="shortcut icon" href="../img/icons/icon-48x48.png" />
 
     <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <link href="../../css/app.css" rel="stylesheet">
+    <link href="../css/app.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Quicksand:wght@300&display=swap');
-
-        body {
-            font-family: 'Quicksand', sans-serif
-        }
+        body{
+            font-family: 'Quicksand', sans-serif }
     </style>
 </head>
 
 <body>
 
-<#if message_edit_car??>
+<#if message_save_car??>
     <script>
-        alert("Error in edit car! Try yet!")
+        alert("Car add success!")
     </script>
 </#if>
+<#if message_edit_car??>
+    <script>
+        alert("Car edit success!")
+    </script>
+</#if>
+
 <div class="wrapper">
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
@@ -70,7 +73,7 @@
                 <li class="sidebar-header">
                     Lists
                 </li>
-                <li class="sidebar-item active">
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin/carlist">
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of car</span>
                     </a>
@@ -80,10 +83,9 @@
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of user</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item active">
                     <a class="sidebar-link" href="/admin/contactlist/">
-                        <i class="align-middle" data-feather="book"></i> <span
-                                class="align-middle">List of contacts</span>
+                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of contacts</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
@@ -93,8 +95,7 @@
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="pages-blank.html">
-                        <i class="align-middle" data-feather="book"></i> <span
-                                class="align-middle">List of testimonals</span>
+                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of testimonals</span>
                     </a>
                 </li>
             </ul>
@@ -117,8 +118,7 @@
                                 <span class="indicator">4</span>
                             </div>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
-                             aria-labelledby="alertsDropdown">
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
                             <div class="dropdown-menu-header">
                                 4 New Notifications
                             </div>
@@ -130,9 +130,7 @@
                                         </div>
                                         <div class="col-10">
                                             <div class="text-dark">Update completed</div>
-                                            <div class="text-muted small mt-1">Restart server 12 to complete the
-                                                update.
-                                            </div>
+                                            <div class="text-muted small mt-1">Restart server 12 to complete the update.</div>
                                             <div class="text-muted small mt-1">30m ago</div>
                                         </div>
                                     </div>
@@ -144,9 +142,7 @@
                                         </div>
                                         <div class="col-10">
                                             <div class="text-dark">Lorem ipsum</div>
-                                            <div class="text-muted small mt-1">Aliquam ex eros, imperdiet vulputate
-                                                hendrerit et.
-                                            </div>
+                                            <div class="text-muted small mt-1">Aliquam ex eros, imperdiet vulputate hendrerit et.</div>
                                             <div class="text-muted small mt-1">2h ago</div>
                                         </div>
                                     </div>
@@ -186,8 +182,7 @@
                                 <i class="align-middle" data-feather="message-square"></i>
                             </div>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
-                             aria-labelledby="messagesDropdown">
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="messagesDropdown">
                             <div class="dropdown-menu-header">
                                 <div class="position-relative">
                                     4 New Messages
@@ -197,14 +192,11 @@
                                 <a href="#" class="list-group-item">
                                     <div class="row g-0 align-items-center">
                                         <div class="col-2">
-                                            <img src="img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle"
-                                                 alt="Vanessa Tucker">
+                                            <img src="img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle" alt="Vanessa Tucker">
                                         </div>
                                         <div class="col-10 ps-2">
                                             <div class="text-dark">Vanessa Tucker</div>
-                                            <div class="text-muted small mt-1">Nam pretium turpis et arcu. Duis arcu
-                                                tortor.
-                                            </div>
+                                            <div class="text-muted small mt-1">Nam pretium turpis et arcu. Duis arcu tortor.</div>
                                             <div class="text-muted small mt-1">15m ago</div>
                                         </div>
                                     </div>
@@ -212,13 +204,11 @@
                                 <a href="#" class="list-group-item">
                                     <div class="row g-0 align-items-center">
                                         <div class="col-2">
-                                            <img src="img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle"
-                                                 alt="William Harris">
+                                            <img src="img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle" alt="William Harris">
                                         </div>
                                         <div class="col-10 ps-2">
                                             <div class="text-dark">William Harris</div>
-                                            <div class="text-muted small mt-1">Curabitur ligula sapien euismod vitae.
-                                            </div>
+                                            <div class="text-muted small mt-1">Curabitur ligula sapien euismod vitae.</div>
                                             <div class="text-muted small mt-1">2h ago</div>
                                         </div>
                                     </div>
@@ -226,8 +216,7 @@
                                 <a href="#" class="list-group-item">
                                     <div class="row g-0 align-items-center">
                                         <div class="col-2">
-                                            <img src="img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle"
-                                                 alt="Christina Mason">
+                                            <img src="img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle" alt="Christina Mason">
                                         </div>
                                         <div class="col-10 ps-2">
                                             <div class="text-dark">Christina Mason</div>
@@ -239,14 +228,11 @@
                                 <a href="#" class="list-group-item">
                                     <div class="row g-0 align-items-center">
                                         <div class="col-2">
-                                            <img src="../../img/avatars/avatar-3.jpg" class="avatar img-fluid rounded-circle"
-                                                 alt="Sharon Lessman">
+                                            <img src="img/avatars/avatar-3.jpg" class="avatar img-fluid rounded-circle" alt="Sharon Lessman">
                                         </div>
                                         <div class="col-10 ps-2">
                                             <div class="text-dark">Sharon Lessman</div>
-                                            <div class="text-muted small mt-1">Aenean tellus metus, bibendum sed,
-                                                posuere ac, mattis non.
-                                            </div>
+                                            <div class="text-muted small mt-1">Aenean tellus metus, bibendum sed, posuere ac, mattis non.</div>
                                             <div class="text-muted small mt-1">5h ago</div>
                                         </div>
                                     </div>
@@ -263,20 +249,14 @@
                         </a>
 
                         <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                            <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall"/>
-                            <span class="text-dark">Charles Hall</span>
+                            <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1"
-                                                                                  data-feather="user"></i> Profile</a>
-                            <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i>
-                                Analytics</a>
+                            <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
+                            <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="index.html"><i class="align-middle me-1"
-                                                                          data-feather="settings"></i> Settings &
-                                Privacy</a>
-                            <a class="dropdown-item" href="#"><i class="align-middle me-1"
-                                                                 data-feather="help-circle"></i> Help Center</a>
+                            <a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
+                            <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Log out</a>
                         </div>
@@ -287,44 +267,60 @@
 
         <main class="content">
             <div class="container-fluid p-0">
-                <div class="row vh-80">
-                    <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
-                        <div class="d-table-cell align-middle">
-                            <div class="text-center mt-4">
-                                <h1 class="h2">Edit car with id - ${editcar.id}</h1>
-                                <p class="lead">
-                                    Start creating the best possible user experience for you customers.
-                                </p>
-                            </div>
 
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="m-sm-4">
-                                        <form method="post" action="/admin/carlist/edit/${editcar.id}">
-                                            <div class="mb-3">
-                                                <label class="form-label">Name</label>
-                                                <input required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="name"
-                                                       placeholder="Enter name car" value="${editcar.name}"/>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Price: ${editprice}</label>
-                                                <input required="required" min="1" max="1000000" class="form-control form-control-lg" type="number" step="0.01" name="price"
-                                                       placeholder="Enter price" value="${editprice}"/>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Describe</label>
-                                                <textarea required="required" minlength="15" maxlength="455" name="description" class="form-control" rows="2" placeholder="Textarea">
-                                                    ${editcar.description}
-                                                </textarea>
-                                            </div>
-                                            <div class="text-center mt-3">
-                                                <button type="submit" class="btn btn-lg btn-primary">Save</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                <h1 class="h3 mb-3"><strong>Contact</strong> List</h1>
+                 <div class="row">
+                    <div class="col-12 col-lg-8 col-xxl-9 d-flex">
+                        <div class="card flex-fill">
+                            <div class="card-header">
+
+                                <h5 class="card-title mb-0">Latest orders</h5>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover my-0">
+                                    <thead>
+                                    <tr>
+                                        <th>Fullname</th>
+                                        <th>Email</th>
+                                        <th class="d-none d-xl-table-cell">Subject</th>
+                                        <th class="d-none d-xl-table-cell">Message</th>
+                                        <th class="d-none d-md-table-cell">Date send</th>
+                                        <th class="d-none d-md-table-cell">Remove</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <#if contactlist?size!=0>
+                                        <#list contactlist as contact>
+                                            <tr>
+                                                <td>${contact.fullname}</td>
+                                                <td>${contact.email}</td>
+                                                <td>${contact.subject}</td>
+                                                <td>${contact.message}</td>
+                                                <td>${contact.date_send}</td>
+                                                <td><a href="/admin/carlist/delete/${car.id}" class="btn btn-danger">Remove</a></td>
+                                            </tr>
+                                        </#list>
+                                    <#else>
+                                        <tr>
+                                            <td>No one contact yet!</td>
+                                        </tr>
+                                    </#if>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-xxl-3 d-flex">
+                        <div class="card flex-fill w-100">
+                            <div class="card-header">
+
+                                <h5 class="card-title mb-0">Monthly Sends</h5>
+                            </div>
+                            <div class="card-body d-flex w-100">
+                                <div class="align-self-center chart chart-lg">
+                                    <canvas id="chartjs-dashboard-bar"></canvas>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -334,6 +330,50 @@
 </div>
 
 <script src="../js/app.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Bar chart
+        new Chart(document.getElementById("chartjs-dashboard-bar"), {
+            type: "bar",
+            data: {
+                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                datasets: [{
+                    label: "This year",
+                    backgroundColor: window.theme.primary,
+                    borderColor: window.theme.primary,
+                    hoverBackgroundColor: window.theme.primary,
+                    hoverBorderColor: window.theme.primary,
+                    data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
+                    barPercentage: .75,
+                    categoryPercentage: .5
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        gridLines: {
+                            display: false
+                        },
+                        stacked: false,
+                        ticks: {
+                            stepSize: 20
+                        }
+                    }],
+                    xAxes: [{
+                        stacked: false,
+                        gridLines: {
+                            color: "transparent"
+                        }
+                    }]
+                }
+            }
+        });
+    });
+</script>
 
 </body>
 

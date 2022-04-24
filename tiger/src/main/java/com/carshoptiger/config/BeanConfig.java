@@ -4,6 +4,8 @@ import com.carshoptiger.repository.API.*;
 import com.carshoptiger.repository.Implementation.*;
 import com.carshoptiger.service.API.*;
 import com.carshoptiger.service.Implementation.*;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,6 +16,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.sql.DataSource;
 
 @Configuration
+@EnableAutoConfiguration(exclude = {ErrorMvcAutoConfiguration.class})
 public class BeanConfig {
     @Bean
     public DataSource mysqlDataSource() {
