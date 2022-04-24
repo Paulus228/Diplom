@@ -1,10 +1,7 @@
 package com.carshoptiger.controller;
 
 import com.carshoptiger.domain.Car;
-import com.carshoptiger.service.API.CarService;
-import com.carshoptiger.service.API.ContactService;
-import com.carshoptiger.service.API.OrderSerivce;
-import com.carshoptiger.service.API.UserService;
+import com.carshoptiger.service.API.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +24,9 @@ public class AdminController {
 
     @Autowired
     private ContactService contactService;
+
+    @Autowired
+    private TestimonalsService testimonalsService;
 
     @GetMapping("/")
     public String adminhome(Model model) {
@@ -130,4 +130,11 @@ public class AdminController {
         contactService.deletecontact(Long.valueOf(id));
         return "redirect:/admin/contactlist/";
     }
+
+    @GetMapping("/testimonalslist/")
+    public String testimonalslist(Model model){
+        model.addAttribute("testimonalslist",testimonalsService.findAllTestimonals());
+        return "admin/admin_list_of_testimonals";
+    }
+
 }
