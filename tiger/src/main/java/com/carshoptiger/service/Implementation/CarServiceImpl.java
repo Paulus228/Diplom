@@ -6,6 +6,7 @@ import com.carshoptiger.service.API.CarService;
 import com.carshoptiger.util.validators.CarValidator;
 import lombok.AllArgsConstructor;
 
+import java.sql.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -16,9 +17,9 @@ public class CarServiceImpl implements CarService {
     @Override
     public boolean savecar(Car car) {
         boolean result_save;
-        Car carIsexists = carRepository.findCarByName(car.getName()).get(0);
-        if(carIsexists==null){
+        if(carRepository.findCarByName(car.getName()).size()==0){
             if(CarValidator.CarValidation(car)){
+                car.setDate_add(new Date(new java.util.Date().getTime()));
                 result_save = carRepository.savecar(car);
             }else{
                 result_save=false;

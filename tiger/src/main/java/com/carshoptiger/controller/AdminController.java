@@ -1,5 +1,6 @@
 package com.carshoptiger.controller;
 
+import com.carshoptiger.domain.Car;
 import com.carshoptiger.service.API.CarService;
 import com.carshoptiger.service.API.OrderSerivce;
 import com.carshoptiger.service.API.UserService;
@@ -7,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.stream.Collectors;
 
@@ -49,7 +52,29 @@ public class AdminController {
     }
 
     @GetMapping("/carlist/add")
-    public String caraddpage(){
-        return "admin_add_car";
+    public String caraddpage(Model model){
+         return "admin/admin_add_car";
+    }
+
+    @PostMapping("/carlist/add")
+    public String caradd(@RequestParam(name = "name")String name,
+                         @RequestParam(name = "price")String price,
+                         @RequestParam(name = "description")String description,
+                         Model model){
+        Car car_save = new Car();
+        car_save.setName(name);
+        car_save.setDescription(description);
+        car_save.setPrice(Float.parseFloat(price.replace(',','.')));
+        car_save.setCount_buy(0);
+
+        boolean car_result_save = carService.savecar(car_save);
+
+        if(car_result_save) {
+            model.addAttribute("message_save_car","Car save success!");
+            return "admin/admin_list_of_car";
+        }else{
+            model.addAttribute("message_save_car","Car save not success! Try yet!");
+            return "admin/admin_add_car";
+        }
     }
 }
