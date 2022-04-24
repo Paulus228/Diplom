@@ -297,7 +297,7 @@
                                                 <td>${contact.subject}</td>
                                                 <td>${contact.message}</td>
                                                 <td>${contact.date_send}</td>
-                                                <td><a href="/admin/carlist/delete/${car.id}" class="btn btn-danger">Remove</a></td>
+                                                <td><a href="/admin/contactlist/remove/${contact.id}" class="btn btn-danger">Remove</a></td>
                                             </tr>
                                         </#list>
                                     <#else>

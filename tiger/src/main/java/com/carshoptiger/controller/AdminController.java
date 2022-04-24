@@ -124,4 +124,10 @@ public class AdminController {
         model.addAttribute("contactlist",contactService.findAllContacts());
         return "admin/admin_list_of_contacts";
     }
+
+    @GetMapping("/contactlist/remove/{id}")
+    public String contactremove(@PathVariable("id")String id){
+        contactService.deletecontact(Long.valueOf(id));
+        return "redirect:/admin/contactlist/";
+    }
 }
