@@ -304,7 +304,7 @@
                                             <td>${car.count_buy}</td>
                                             <td>${car.description}</td>
                                             <td><a href="/admin/carlist/edit/${car.id}" class="btn btn-info">Edit</a></td>
-                                            <td><a class="btn btn-danger">Remove</a></td>
+                                            <td><a href="/admin/carlist/delete/${car.id}" class="btn btn-danger">Remove</a></td>
                                             <td><a class="btn btn-info">Photos</a></td>
                                             <td><a class="btn btn-info">Car info</a></td>
                                             <td><a class="btn btn-info">Car extract</a></td>
