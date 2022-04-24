@@ -22,7 +22,8 @@ public class CarRepositoryImpl implements CarRepository {
 
     @Override
     public boolean updatecar(Car car) {
-        return databaseMysql.update("UPDATE car SET name=?,price=?,count_buy=?,description=? WHERE id=?")>0;
+        return databaseMysql.update("UPDATE car SET car.name=?,price=?,count_buy=?,description=? WHERE id=?"
+        ,car.getName(),car.getPrice(),car.getCount_buy(),car.getDescription(),car.getId())>0;
     }
 
     @Override
