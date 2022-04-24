@@ -137,4 +137,9 @@ public class AdminController {
         return "admin/admin_list_of_testimonals";
     }
 
+    @GetMapping("/testimonalslist/remove/{id}")
+    public String testimonalsremove(@PathVariable("id")String id){
+        testimonalsService.deletetestimonals(Long.valueOf(id));
+        return "redirect:/admin/testimonalslist/";
+    }
 }

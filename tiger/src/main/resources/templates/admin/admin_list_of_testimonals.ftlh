@@ -83,7 +83,7 @@
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of user</span>
                     </a>
                 </li>
-                <li class="sidebar-item active">
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin/contactlist/">
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of contacts</span>
                     </a>
@@ -93,8 +93,8 @@
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of order</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="pages-blank.html">
+                <li class="sidebar-item active">
+                    <a class="sidebar-link" href="/admin/testimonalslist/">
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of testimonals</span>
                     </a>
                 </li>
@@ -293,7 +293,7 @@
                                                 <td>${testimonals.fullname}</td>
                                                 <td>${testimonals.message_testimonals}</td>
                                                 <td>${testimonals.date_send}</td>
-                                                <td><a href="/admin/contactlist/remove/${testimonals.id}" class="btn btn-danger">Remove</a></td>
+                                                <td><a href="/admin/testimonalslist/remove/${testimonals.id}" class="btn btn-danger">Remove</a></td>
                                             </tr>
                                         </#list>
                                     <#else>

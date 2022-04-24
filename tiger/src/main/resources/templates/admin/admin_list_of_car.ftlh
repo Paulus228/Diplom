@@ -94,7 +94,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="pages-blank.html">
+                    <a class="sidebar-link" href="/admin/testimonalslist/">
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of testimonals</span>
                     </a>
                 </li>
@@ -275,7 +275,7 @@
                         <div class="card flex-fill">
                             <div class="card-header">
 
-                                <h5 class="card-title mb-0">Latest orders</h5>
+                                <h5 class="card-title mb-0">List of car</h5>
                             </div>
                             <div class="table-responsive">
                              <table class="table table-hover my-0">
