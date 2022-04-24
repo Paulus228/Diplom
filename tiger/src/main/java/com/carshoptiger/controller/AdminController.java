@@ -150,4 +150,10 @@ public class AdminController {
         model.addAttribute("userlist",userService.findAllUser());
         return "admin/admin_list_of_user";
     }
+
+    @GetMapping("/userlist/remove/{id}")
+    public String userremove(@PathVariable("id")String id){
+        userService.deleteuser(userService.getuserbyid(Long.valueOf(id)));
+        return "redirect:/admin/userlist/";
+    }
 }

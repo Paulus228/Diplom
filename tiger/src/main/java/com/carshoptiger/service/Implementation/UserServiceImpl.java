@@ -23,16 +23,16 @@ public class UserServiceImpl implements UserService {
     public boolean saveuser(User user) {
         boolean result_save;
         User userIsexists = userRepository.findUserByUsername(user.getUsername());
-        if(userIsexists==null){
-            if(UserValidator.UserValidation(user)){
+        if (userIsexists == null) {
+            if (UserValidator.UserValidation(user)) {
                 user.setDate_add(new Date(new java.util.Date().getTime()));
                 result_save = userRepository.saveuser(user);
                 basketService.InitBasket(userRepository.findUserByUsername(user.getUsername()).getId());
-            }else{
-                result_save=false;
+            } else {
+                result_save = false;
             }
-        }else{
-            result_save=false;
+        } else {
+            result_save = false;
         }
         return result_save;
     }
@@ -42,13 +42,13 @@ public class UserServiceImpl implements UserService {
         boolean result_update;
         User userIsexists = userRepository.getuserbyid(user.getId());
 
-        if(userIsexists!=null){
-            if(UserValidator.UserValidation(user)){
+        if (userIsexists != null) {
+            if (UserValidator.UserValidation(user)) {
                 result_update = userRepository.updateuser(user);
-            }else{
+            } else {
                 result_update = false;
             }
-        }else{
+        } else {
             result_update = false;
         }
         return result_update;
@@ -59,16 +59,13 @@ public class UserServiceImpl implements UserService {
         boolean result_delete;
         User userIsexists = userRepository.getuserbyid(user.getId());
 
-        if(userIsexists!=null){
-            if(UserValidator.UserValidation(user)){
-                result_delete = userRepository.deleteuser(user);
-            }else{
-                result_delete = false;
-            }
-        }else{
+        if (userIsexists != null) {
+            result_delete = userRepository.deleteuser(user);
+        } else {
             result_delete = false;
         }
-        return result_delete;    }
+        return result_delete;
+    }
 
     @Override
     public List<User> findAllUser() {
@@ -77,9 +74,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUserByUsername(String username) {
-        if(username.equals("")){
-           return null;
-        }else {
+        if (username.equals("")) {
+            return null;
+        } else {
             return userRepository.findUserByUsername(username);
         }
     }

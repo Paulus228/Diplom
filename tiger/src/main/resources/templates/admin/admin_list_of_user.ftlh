@@ -297,12 +297,12 @@
                                                 <td>${user.email}</td>
                                                 <td>${user.activationcode}</td>
                                                 <td>${user.date_add}</td>
-                                                 <td><a href="/admin/testimonalslist/remove/" class="btn btn-danger">Remove</a></td>
+                                                 <td><a href="/admin/userlist/remove/${user.id}" class="btn btn-danger">Remove</a></td>
                                             </tr>
                                         </#list>
                                     <#else>
                                         <tr>
-                                            <td>No one contact yet!</td>
+                                            <td>No one user yet!</td>
                                         </tr>
                                     </#if>
                                     </tbody>
