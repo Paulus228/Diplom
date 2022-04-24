@@ -28,6 +28,8 @@ public class AdminController {
     @Autowired
     private TestimonalsService testimonalsService;
 
+
+
     @GetMapping("/")
     public String adminhome(Model model) {
 
@@ -141,5 +143,11 @@ public class AdminController {
     public String testimonalsremove(@PathVariable("id")String id){
         testimonalsService.deletetestimonals(Long.valueOf(id));
         return "redirect:/admin/testimonalslist/";
+    }
+
+    @GetMapping("/userlist/")
+    public String userlist(Model model){
+        model.addAttribute("userlist",userService.findAllUser());
+        return "admin/admin_list_of_user";
     }
 }

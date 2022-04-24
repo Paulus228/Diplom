@@ -78,7 +78,7 @@
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of car</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item active">
                     <a class="sidebar-link" href="/admin/userlist/">
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of user</span>
                     </a>
@@ -93,7 +93,7 @@
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of order</span>
                     </a>
                 </li>
-                <li class="sidebar-item active">
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin/testimonalslist/">
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of testimonals</span>
                     </a>
@@ -268,32 +268,36 @@
         <main class="content">
             <div class="container-fluid p-0">
 
-                <h1 class="h3 mb-3"><strong>Testimonals</strong> List</h1>
+                <h1 class="h3 mb-3"><strong>User</strong> List</h1>
                  <div class="row">
                     <div class="col-12 col-lg-8 col-xxl-9 d-flex">
                         <div class="card flex-fill">
                             <div class="card-header">
 
-                                <h5 class="card-title mb-0">List of testimonals</h5>
+                                <h5 class="card-title mb-0">List of users</h5>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-hover my-0">
                                     <thead>
                                     <tr>
                                         <th>Fullname</th>
-                                        <th class="d-none d-xl-table-cell">Message</th>
-                                        <th class="d-none d-md-table-cell">Date send</th>
+                                        <th class="d-none d-xl-table-cell">Username</th>
+                                        <th class="d-none d-md-table-cell">Email</th>
+                                        <th class="d-none d-md-table-cell">Activation code</th>
+                                        <th class="d-none d-md-table-cell">Date add</th>
                                         <th class="d-none d-md-table-cell">Remove</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <#if testimonalslist?size!=0>
-                                        <#list testimonalslist as testimonals>
+                                    <#if userlist?size!=0>
+                                        <#list userlist as user>
                                             <tr>
-                                                <td>${testimonals.fullname}</td>
-                                                <td>${testimonals.message_testimonals}</td>
-                                                <td>${testimonals.date_send}</td>
-                                                <td><a href="/admin/testimonalslist/remove/${testimonals.id}" class="btn btn-danger">Remove</a></td>
+                                                <td>${user.soname} ${user.name}</td>
+                                                <td>${user.username}</td>
+                                                <td>${user.email}</td>
+                                                <td>${user.activationcode}</td>
+                                                <td>${user.date_add}</td>
+                                                 <td><a href="/admin/testimonalslist/remove/" class="btn btn-danger">Remove</a></td>
                                             </tr>
                                         </#list>
                                     <#else>
