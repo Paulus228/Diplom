@@ -43,11 +43,7 @@ public class UserServiceImpl implements UserService {
         User userIsexists = userRepository.getuserbyid(user.getId());
 
         if (userIsexists != null) {
-            if (UserValidator.UserValidation(user)) {
-                result_update = userRepository.updateuser(user);
-            } else {
-                result_update = false;
-            }
+                 result_update = userRepository.updateuser(user);
         } else {
             result_update = false;
         }

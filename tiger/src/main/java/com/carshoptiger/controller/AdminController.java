@@ -1,6 +1,8 @@
 package com.carshoptiger.controller;
 
 import com.carshoptiger.domain.Car;
+import com.carshoptiger.domain.Role;
+import com.carshoptiger.domain.User;
 import com.carshoptiger.service.API.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -154,6 +156,20 @@ public class AdminController {
     @GetMapping("/userlist/remove/{id}")
     public String userremove(@PathVariable("id")String id){
         userService.deleteuser(userService.getuserbyid(Long.valueOf(id)));
+        return "redirect:/admin/userlist/";
+    }
+
+    @GetMapping("/userlist/update/{id}")
+    public String userupdatepage(@PathVariable("id")String id, Model model){
+        model.addAttribute("updateuser",userService.getuserbyid(Long.valueOf(id)));
+        return "admin/admin_edit_user";
+    }
+
+    @PostMapping("/userlist/update/{id}")
+    public String userupdate(@PathVariable("id")String id, @RequestParam(name = "role")String role){
+        User user_update = userService.getuserbyid(Long.valueOf(id));
+        user_update.setRoles(Role.valueOf(role));
+        userService.updateuser(user_update);
         return "redirect:/admin/userlist/";
     }
 }

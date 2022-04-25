@@ -22,7 +22,7 @@ public final class UserRepositoryImpl implements UserRepository {
 
     @Override
     public boolean updateuser(User user) {
-        return databaseMysql.update("update user set name=?,soname=?,username=?,password=?,roles=?,email=? where id=",
+        return databaseMysql.update("update user set name=?,soname=?,username=?,password=?,roles=?,email=? where id=?",
                 user.getName(), user.getSoname(), user.getUsername(), user.getPassword(), user.getRoles().name(), user.getEmail(), user.getId()) > 0;
     }
 
