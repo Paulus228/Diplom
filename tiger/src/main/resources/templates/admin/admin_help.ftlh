@@ -10,13 +10,13 @@
     <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="../img/icons/icon-48x48.png" />
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
     <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <link href="../css/app.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Quicksand:wght@300&display=swap');
         body{
@@ -25,18 +25,6 @@
 </head>
 
 <body>
-
-<#if message_save_car??>
-    <script>
-        alert("Car add success!")
-    </script>
-</#if>
-<#if message_edit_car??>
-    <script>
-        alert("Car edit success!")
-    </script>
-</#if>
-
 <div class="wrapper">
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
@@ -48,12 +36,12 @@
                     Administration
                 </li>
 
-                <li class="sidebar-item">
+                <li class="sidebar-item ">
                     <a class="sidebar-link" href="/admin/">
                         <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item active">
                     <a class="sidebar-link" href="/admin/help">
                         <i class="align-middle" data-feather="help-circle"></i> <span class="align-middle">Help center</span>
                     </a>
@@ -61,30 +49,30 @@
                 <li class="sidebar-header">
                     Lists
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item active">
                     <a class="sidebar-link" href="/admin/carlist">
-                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of car</span>
+                        <i class="align-middle" data-feather="list"></i> <span class="align-middle">List of car</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin/userlist/">
-                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of user</span>
+                        <i class="align-middle" data-feather="list"></i> <span class="align-middle">List of user</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin/contactlist/">
-                        <i class="align-middle" data-feather="book"></i> <span
+                        <i class="align-middle" data-feather="list"></i> <span
                                 class="align-middle">List of contacts</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin/orderlist/">
-                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of order</span>
+                        <i class="align-middle" data-feather="list"></i> <span class="align-middle">List of order</span>
                     </a>
                 </li>
-                <li class="sidebar-item active">
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin/testimonalslist/">
-                        <i class="align-middle" data-feather="book"></i> <span
+                        <i class="align-middle" data-feather="list"></i> <span
                                 class="align-middle">List of testimonals</span>
                     </a>
                 </li>
@@ -130,108 +118,26 @@
         <main class="content">
             <div class="container-fluid p-0">
 
-                <h1 class="h3 mb-3"><strong>Testimonals</strong> List</h1>
-                 <div class="row">
-                    <div class="col-12 col-lg-8 col-xxl-9 d-flex">
-                        <div class="card flex-fill">
-                            <div class="card-header">
+                <h1 class="h3 mb-3">Help info</h1>
 
-                                <h5 class="card-title mb-0">List of testimonals</h5>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-hover my-0">
-                                    <thead>
-                                    <tr>
-                                        <th>Fullname</th>
-                                        <th class="d-none d-xl-table-cell">Message</th>
-                                        <th class="d-none d-md-table-cell">Date send</th>
-                                        <th class="d-none d-md-table-cell">Remove</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <#if testimonalslist?size!=0>
-                                        <#list testimonalslist as testimonals>
-                                            <tr>
-                                                <td>${testimonals.fullname}</td>
-                                                <td>${testimonals.message_testimonals}</td>
-                                                <td>${testimonals.date_send}</td>
-                                                <td><a href="/admin/testimonalslist/remove/${testimonals.id}" class="btn btn-danger">Remove</a></td>
-                                            </tr>
-                                        </#list>
-                                    <#else>
-                                        <tr>
-                                            <td>No one contact yet!</td>
-                                        </tr>
-                                    </#if>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-xxl-3 d-flex">
-                        <div class="card flex-fill w-100">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
                             <div class="card-header">
-
-                                <h5 class="card-title mb-0">Monthly Testimonals</h5>
+                                <h5 class="card-title mb-0">Empty card</h5>
                             </div>
-                            <div class="card-body d-flex w-100">
-                                <div class="align-self-center chart chart-lg">
-                                    <canvas id="chartjs-dashboard-bar"></canvas>
-                                </div>
+                            <div class="card-body">
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </main>
     </div>
 </div>
 
-<script src="../js/app.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Bar chart
-        new Chart(document.getElementById("chartjs-dashboard-bar"), {
-            type: "bar",
-            data: {
-                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [{
-                    label: "This year",
-                    backgroundColor: window.theme.primary,
-                    borderColor: window.theme.primary,
-                    hoverBackgroundColor: window.theme.primary,
-                    hoverBorderColor: window.theme.primary,
-                    data: [524, 637, 411, 515, 652, 425, 155, 173, 260, 376, 248, 279],
-                    barPercentage: .75,
-                    categoryPercentage: .5
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                legend: {
-                    display: false
-                },
-                scales: {
-                    yAxes: [{
-                        gridLines: {
-                            display: false
-                        },
-                        stacked: false,
-                        ticks: {
-                            stepSize: 20
-                        }
-                    }],
-                    xAxes: [{
-                        stacked: false,
-                        gridLines: {
-                            color: "transparent"
-                        }
-                    }]
-                }
-            }
-        });
-    });
-</script>
+<script src="js/app.js"></script>
 
 </body>
 

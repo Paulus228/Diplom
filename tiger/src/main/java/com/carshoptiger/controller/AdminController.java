@@ -32,7 +32,6 @@ public class AdminController {
     private TestimonalsService testimonalsService;
 
 
-
     @GetMapping("/")
     public String adminhome(Model model) {
 
@@ -125,49 +124,49 @@ public class AdminController {
     }
 
     @GetMapping("/contactlist/")
-    public String contactlist(Model model){
-        model.addAttribute("contactlist",contactService.findAllContacts());
+    public String contactlist(Model model) {
+        model.addAttribute("contactlist", contactService.findAllContacts());
         return "admin/admin_list_of_contacts";
     }
 
     @GetMapping("/contactlist/remove/{id}")
-    public String contactremove(@PathVariable("id")String id){
+    public String contactremove(@PathVariable("id") String id) {
         contactService.deletecontact(Long.valueOf(id));
         return "redirect:/admin/contactlist/";
     }
 
     @GetMapping("/testimonalslist/")
-    public String testimonalslist(Model model){
-        model.addAttribute("testimonalslist",testimonalsService.findAllTestimonals());
+    public String testimonalslist(Model model) {
+        model.addAttribute("testimonalslist", testimonalsService.findAllTestimonals());
         return "admin/admin_list_of_testimonals";
     }
 
     @GetMapping("/testimonalslist/remove/{id}")
-    public String testimonalsremove(@PathVariable("id")String id){
+    public String testimonalsremove(@PathVariable("id") String id) {
         testimonalsService.deletetestimonals(Long.valueOf(id));
         return "redirect:/admin/testimonalslist/";
     }
 
     @GetMapping("/userlist/")
-    public String userlist(Model model){
-        model.addAttribute("userlist",userService.findAllUser());
+    public String userlist(Model model) {
+        model.addAttribute("userlist", userService.findAllUser());
         return "admin/admin_list_of_user";
     }
 
     @GetMapping("/userlist/remove/{id}")
-    public String userremove(@PathVariable("id")String id){
+    public String userremove(@PathVariable("id") String id) {
         userService.deleteuser(userService.getuserbyid(Long.valueOf(id)));
         return "redirect:/admin/userlist/";
     }
 
     @GetMapping("/userlist/update/{id}")
-    public String userupdatepage(@PathVariable("id")String id, Model model){
-        model.addAttribute("updateuser",userService.getuserbyid(Long.valueOf(id)));
+    public String userupdatepage(@PathVariable("id") String id, Model model) {
+        model.addAttribute("updateuser", userService.getuserbyid(Long.valueOf(id)));
         return "admin/admin_edit_user";
     }
 
     @PostMapping("/userlist/update/{id}")
-    public String userupdate(@PathVariable("id")String id, @RequestParam(name = "role")String role){
+    public String userupdate(@PathVariable("id") String id, @RequestParam(name = "role") String role) {
         User user_update = userService.getuserbyid(Long.valueOf(id));
         user_update.setRoles(Role.valueOf(role));
         userService.updateuser(user_update);
@@ -176,30 +175,30 @@ public class AdminController {
 
     @GetMapping("/orderlist/")
     public String orderlist(Model model) {
-        model.addAttribute("orderlist",orderSerivce.findAllOrder());
-        model.addAttribute("carservice",carService);
+        model.addAttribute("orderlist", orderSerivce.findAllOrder());
+        model.addAttribute("carservice", carService);
         return "admin/admin_list_of_orders";
     }
 
     @GetMapping("/orderlist/remove/{id}")
-    public String orderremove(@PathVariable("id")String id, Model model) {
+    public String orderremove(@PathVariable("id") String id, Model model) {
         orderSerivce.deleteorder(orderSerivce.getorderbyid(Long.valueOf(id)));
         return "redirect:/admin/orderlist/";
     }
 
     @GetMapping("/orderlist/update/{id}")
-    public String orderupdatepage(@PathVariable(name = "id")String id,Model model){
-        model.addAttribute("orderupdate",orderSerivce.getorderbyid(Long.valueOf(id)));
+    public String orderupdatepage(@PathVariable(name = "id") String id, Model model) {
+        model.addAttribute("orderupdate", orderSerivce.getorderbyid(Long.valueOf(id)));
         return "admin/admin_edit_order";
     }
 
     @PostMapping("/orderlist/update/{id}")
-    public String orderupdate(@PathVariable("id")String id,
-    @RequestParam("country")String country,
-                              @RequestParam("city")String city,
-                              @RequestParam("address")String address,
-                              @RequestParam("contactphone")String contactphone,
-                              @RequestParam("order_status")String orderstatus){
+    public String orderupdate(@PathVariable("id") String id,
+                              @RequestParam("country") String country,
+                              @RequestParam("city") String city,
+                              @RequestParam("address") String address,
+                              @RequestParam("contactphone") String contactphone,
+                              @RequestParam("order_status") String orderstatus) {
 
         Order orderupdate = orderSerivce.getorderbyid(Long.valueOf(id));
         orderupdate.setCity(city);
@@ -211,6 +210,17 @@ public class AdminController {
         orderSerivce.updateorder(orderupdate);
 
         return "redirect:/admin/orderlist/";
+    }
+
+    @GetMapping("/orderlist/one/{id}")
+    public String orderonepage(@PathVariable("id")String id, Model model){
+        model.addAttribute("orderone",orderSerivce.getorderbyid(Long.valueOf(id)));
+        return "admin/admin_one_order";
+    }
+
+    @GetMapping("/help")
+    public String adminhelp(){
+        return "admin/admin_help";
     }
 
 
