@@ -23,6 +23,6 @@ public class ErrorController {
                 return "error-500";
             }
         }
-        return "error/errorpage404";
+        return "error/404";
     }
 }

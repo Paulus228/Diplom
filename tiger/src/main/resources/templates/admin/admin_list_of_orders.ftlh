@@ -78,12 +78,12 @@
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of car</span>
                     </a>
                 </li>
-                <li class="sidebar-item active">
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin/userlist/">
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of user</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item active">
                     <a class="sidebar-link" href="/admin/contactlist/">
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of contacts</span>
                     </a>
@@ -268,44 +268,54 @@
         <main class="content">
             <div class="container-fluid p-0">
 
-                <h1 class="h3 mb-3"><strong>User</strong> List</h1>
+                <h1 class="h3 mb-3"><strong>Order</strong> List</h1>
                  <div class="row">
                     <div class="col-12 col-lg-8 col-xxl-9 d-flex">
                         <div class="card flex-fill">
                             <div class="card-header">
 
-                                <h5 class="card-title mb-0">List of users</h5>
+                                <h5 class="card-title mb-0">List of order</h5>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-hover my-0">
                                     <thead>
                                     <tr>
                                         <th>Fullname</th>
-                                        <th class="d-none d-xl-table-cell">Username</th>
-                                        <th class="d-none d-md-table-cell">Email</th>
-                                        <th class="d-none d-md-table-cell">Activation code</th>
-                                        <th class="d-none d-md-table-cell">Date add</th>
+                                        <th>Price order</th>
+                                        <th class="d-none d-xl-table-cell">Country</th>
+                                        <th class="d-none d-xl-table-cell">City</th>
+                                        <th class="d-none d-md-table-cell">Address</th>
+                                        <th class="d-none d-md-table-cell">Contact phone</th>
+                                        <th class="d-none d-md-table-cell">Comment order</th>
+                                        <th class="d-none d-md-table-cell">Car</th>
+                                        <th class="d-none d-md-table-cell"><strong>Status order</strong></th>
+                                        <th class="d-none d-md-table-cell">Date order</th>
                                         <th class="d-none d-md-table-cell">Remove</th>
-                                        <th class="d-none d-md-table-cell">Edit</th>
-
+                                        <th class="d-none d-md-table-cell">Update</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <#if userlist?size!=0>
-                                        <#list userlist as user>
+                                    <#if orderlist?size!=0>
+                                        <#list orderlist as order>
                                             <tr>
-                                                <td>${user.soname} ${user.name}</td>
-                                                <td>${user.username}</td>
-                                                <td>${user.email}</td>
-                                                <td>${user.activationcode}</td>
-                                                <td>${user.date_add}</td>
-                                                 <td><a href="/admin/userlist/remove/${user.id}" class="btn btn-danger">Remove</a></td>
-                                                <td><a href="/admin/userlist/update/${user.id}" class="btn btn-info">Update</a></td>
+                                                <td>${order.soname} ${order.name} ${order.faname}</td>
+                                                <td>${order.priceorder}</td>
+                                                <td>${order.country}</td>
+                                                <td>${order.city}</td>
+                                                <td>${order.address}</td>
+                                                <td>${order.contactphone}</td>
+                                                <td>${order.commentorder}</td>
+                                                <td>${carservice.getonecar(order.id_car).name}</td>
+                                                <td>${order.status_order}</td>
+                                                <td>${order.date_order}</td>
+                                                <td><a href="/admin/contactlist/remove/${order.id}" class="btn btn-danger">Remove</a>
+                                                <td><a href="/admin/contactlist/remove/${order.id}" class="btn btn-info">Update</a></td>
+
                                             </tr>
                                         </#list>
                                     <#else>
                                         <tr>
-                                            <td>No one user yet!</td>
+                                            <td>No one order yet!</td>
                                         </tr>
                                     </#if>
                                     </tbody>
@@ -317,7 +327,7 @@
                         <div class="card flex-fill w-100">
                             <div class="card-header">
 
-                                <h5 class="card-title mb-0">Monthly Sends</h5>
+                                <h5 class="card-title mb-0">Monthly Orders</h5>
                             </div>
                             <div class="card-body d-flex w-100">
                                 <div class="align-self-center chart chart-lg">

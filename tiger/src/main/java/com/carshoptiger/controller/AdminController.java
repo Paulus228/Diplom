@@ -172,4 +172,13 @@ public class AdminController {
         userService.updateuser(user_update);
         return "redirect:/admin/userlist/";
     }
+
+    @GetMapping("/orderlist/")
+    public String orderlist(Model model) {
+        model.addAttribute("orderlist",orderSerivce.findAllOrder());
+        model.addAttribute("carservice",carService);
+        return "admin/admin_list_of_orders";
+    }
+
+
 }
