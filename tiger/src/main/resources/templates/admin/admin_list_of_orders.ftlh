@@ -308,7 +308,7 @@
                                                 <td>${carservice.getonecar(order.id_car).name}</td>
                                                 <td>${order.status_order}</td>
                                                 <td>${order.date_order}</td>
-                                                <td><a href="/admin/contactlist/remove/${order.id}" class="btn btn-danger">Remove</a>
+                                                <td><a href="/admin/orderlist/remove/${order.id}" class="btn btn-danger">Remove</a>
                                                 <td><a href="/admin/contactlist/remove/${order.id}" class="btn btn-info">Update</a></td>
 
                                             </tr>

@@ -180,5 +180,11 @@ public class AdminController {
         return "admin/admin_list_of_orders";
     }
 
+    @GetMapping("/orderlist/remove/{id}")
+    public String orderremove(@PathVariable("id")String id, Model model) {
+        orderSerivce.deleteorder(orderSerivce.getorderbyid(Long.valueOf(id)));
+        return "redirect:/admin/orderlist/";
+    }
+
 
 }
