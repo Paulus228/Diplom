@@ -1,6 +1,7 @@
 package com.carshoptiger.controller;
 
 import com.carshoptiger.domain.Car;
+import com.carshoptiger.domain.Order;
 import com.carshoptiger.domain.Role;
 import com.carshoptiger.domain.User;
 import com.carshoptiger.service.API.*;
@@ -183,6 +184,32 @@ public class AdminController {
     @GetMapping("/orderlist/remove/{id}")
     public String orderremove(@PathVariable("id")String id, Model model) {
         orderSerivce.deleteorder(orderSerivce.getorderbyid(Long.valueOf(id)));
+        return "redirect:/admin/orderlist/";
+    }
+
+    @GetMapping("/orderlist/update/{id}")
+    public String orderupdatepage(@PathVariable(name = "id")String id,Model model){
+        model.addAttribute("orderupdate",orderSerivce.getorderbyid(Long.valueOf(id)));
+        return "admin/admin_edit_order";
+    }
+
+    @PostMapping("/orderlist/update/{id}")
+    public String orderupdate(@PathVariable("id")String id,
+    @RequestParam("country")String country,
+                              @RequestParam("city")String city,
+                              @RequestParam("address")String address,
+                              @RequestParam("contactphone")String contactphone,
+                              @RequestParam("order_status")String orderstatus){
+
+        Order orderupdate = orderSerivce.getorderbyid(Long.valueOf(id));
+        orderupdate.setCity(city);
+        orderupdate.setCountry(country);
+        orderupdate.setAddress(address);
+        orderupdate.setContactphone(contactphone);
+        orderupdate.setStatus_order(orderstatus);
+
+        orderSerivce.updateorder(orderupdate);
+
         return "redirect:/admin/orderlist/";
     }
 

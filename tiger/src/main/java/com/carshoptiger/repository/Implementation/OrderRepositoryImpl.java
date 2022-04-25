@@ -26,7 +26,7 @@ public class OrderRepositoryImpl implements OrderRepository {
     public boolean updateorder(Order order) {
         return databaseMysql.update("UPDATE orders SET name=?, soname=?, faname=?, country=?," +
                         "city=?, address=?, contactphone=?,status_order=? WHERE id = ?", order.getName(), order.getSoname(),
-                order.getFaname(), order.getCountry(), order.getCity(), order.getAddress(), order.getContactphone(), order.getId()) > 0;
+                order.getFaname(), order.getCountry(), order.getCity(), order.getAddress(), order.getContactphone(),order.getStatus_order(), order.getId()) > 0;
     }
 
     @Override

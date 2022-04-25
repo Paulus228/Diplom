@@ -39,11 +39,7 @@ public class OrderServiceImpl implements OrderSerivce {
         Order orderIsexists = orderRepository.getorderbyid(order.getId());
 
         if(orderIsexists!=null){
-            if(OrderValidator.OrderValidation(order)){
                 result_update = orderRepository.updateorder(order);
-            }else{
-                result_update = false;
-            }
         }else{
             result_update = false;
         }
