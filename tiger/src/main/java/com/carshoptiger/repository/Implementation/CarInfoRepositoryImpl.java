@@ -2,8 +2,8 @@ package com.carshoptiger.repository.Implementation;
 
 import com.carshoptiger.domain.CarInfo;
 import com.carshoptiger.repository.API.CarInfoRepository;
-import com.carshoptiger.util.exception.CarNotFoundException;
 import lombok.AllArgsConstructor;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -15,7 +15,7 @@ public class CarInfoRepositoryImpl implements CarInfoRepository {
     @Override
     public boolean savecarinfo(CarInfo carInfo) {
         return databaseMysql.update("INSERT INTO carinfo(id_car, type, make, model, first_reg," +
-                " mileage, fuel, enginesize, power, gearbox, numberseat, doors, color) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?",
+                " mileage, fuel, enginesize, power, gearbox, numberseat, doors, color) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)",
                 carInfo.getId_car(),carInfo.getType(),carInfo.getMake(),carInfo.getModel(),carInfo.getFirst_reg(),carInfo.getMileage(),
                 carInfo.getFuel(),carInfo.getEnginesize(),carInfo.getPower(),carInfo.getGearbox(),
                 carInfo.getNumberseat(),carInfo.getDoors(),carInfo.getColor())>0;
@@ -34,7 +34,7 @@ public class CarInfoRepositoryImpl implements CarInfoRepository {
     public CarInfo getonecarinfobycarid(Long id_car) {
         try {
             return databaseMysql.queryForObject("SELECT * FROM carinfo WHERE id_car=?", new BeanPropertyRowMapper<>(CarInfo.class), id_car);
-        }catch (CarNotFoundException carNotFoundException){
+        }catch (EmptyResultDataAccessException carNotFoundException){
             return null;
         }
     }

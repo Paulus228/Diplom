@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.stream.Collectors;
 
 @Controller
@@ -33,6 +34,9 @@ public class AdminController {
 
     @Autowired
     private CarExtractService carExtractService;
+
+    @Autowired
+    private CarInfoService carInfoService;
 
     @GetMapping("/")
     public String adminhome(Model model) {
@@ -193,6 +197,54 @@ public class AdminController {
         carExtractService.deletecarextract(Long.valueOf(id));
 
         return "redirect:/admin/carlist/extracts/"+carid;
+    }
+
+    @GetMapping("/carlist/carinfo/{id}")
+    public String carinfo(@PathVariable("id")String id,
+                          Model model){
+        CarInfo carInfo = carInfoService.getonecarinfobycarid(Long.valueOf(id));
+        model.addAttribute("carinfo", carInfo);
+        model.addAttribute("idcar",id);
+        return "admin/admin_car_info";
+    }
+
+    @GetMapping("/carlist/carinfo/add/{id}")
+    public String carinfoaddpage(@PathVariable("id")String id, Model model){
+        model.addAttribute("idcar",id);
+        return "admin/admin_add_car_info";
+    }
+
+    @PostMapping("/carlist/carinfo/add/{id}")
+    public String carinfoadd(@PathVariable("id")String id, Model model,
+                             @RequestParam("type")String type,
+                             @RequestParam("make")String make,
+                             @RequestParam("models")String models,
+                             @RequestParam("mileage")String mileage,
+                             @RequestParam("fuel")String fuel,
+                             @RequestParam("enginesize")String enginesize,
+                             @RequestParam("power")String power,
+                             @RequestParam("gearbox")String gearbox,
+                             @RequestParam("numberseat")String numberseat,
+                             @RequestParam("doors")String doors,
+                             @RequestParam("color")String color) {
+        model.addAttribute("idcar", id);
+        CarInfo carInfo = new CarInfo();
+        carInfo.setId_car(Long.valueOf(id));
+        carInfo.setType(type);
+        carInfo.setMake(make);
+        carInfo.setModel(models);
+        carInfo.setFirst_reg(new Date(new java.util.Date().getTime()));
+        carInfo.setMileage(Integer.valueOf(mileage));
+        carInfo.setFuel(fuel);
+        carInfo.setEnginesize(Integer.valueOf(enginesize));
+        carInfo.setPower(Integer.valueOf(power));
+        carInfo.setGearbox(gearbox);
+        carInfo.setNumberseat(Integer.valueOf(numberseat));
+        carInfo.setDoors(doors);
+        carInfo.setColor(color);
+
+        carInfoService.savecarinfo(carInfo);
+        return "redirect:/admin/carlist/carinfo/" + id;
     }
 
     @GetMapping("/contactlist/")
