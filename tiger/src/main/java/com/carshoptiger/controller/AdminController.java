@@ -1,9 +1,6 @@
 package com.carshoptiger.controller;
 
-import com.carshoptiger.domain.Car;
-import com.carshoptiger.domain.Order;
-import com.carshoptiger.domain.Role;
-import com.carshoptiger.domain.User;
+import com.carshoptiger.domain.*;
 import com.carshoptiger.service.API.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -132,10 +129,27 @@ public class AdminController {
     @GetMapping("/carlist/carphotos/{id}")
     public String carphotolist(@PathVariable("id")String id,
                                Model model){
-
+        model.addAttribute("carid",id);
         model.addAttribute("carphotolist",carPhotoService.findallByidCar(Long.valueOf(id)));
-
         return "admin/admin_list_of_car_photos";
+    }
+
+    @GetMapping("/carlist/carphotos/add/{id}")
+    public String addcarphotopage(@PathVariable("id")String id,
+                                  Model model){
+        model.addAttribute("carid",id);
+        return "admin/admin_add_car_photo";
+    }
+
+    @PostMapping("/carlist/carphotos/add/{id}")
+    public String addcarphoto(@PathVariable("id")String id,
+                              @RequestParam(name = "photo_url")String photo_url){
+        CarPhoto carPhoto = new CarPhoto();
+        carPhoto.setId_car(Long.valueOf(id));
+        carPhoto.setPhotourl(photo_url);
+
+        carPhotoService.savecarphoto(carPhoto);
+        return "redirect:/admin/carlist/carphotos/"+id;
     }
 
     @GetMapping("/contactlist/")

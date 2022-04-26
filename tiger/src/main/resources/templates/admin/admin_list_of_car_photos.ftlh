@@ -329,18 +329,15 @@
         <main class="content">
             <div class="container-fluid p-0">
 
-                <h1 class="h3 mb-3"><strong>Car</strong> List</h1>
-                <a class="btn btn-info" href="/admin/carlist/add" style="margin-bottom: 15px"><i
-                            data-feather="plus-circle"></i>Add new</a>
+                <h1 class="h3 mb-3"><strong>Car photo</strong> List</h1>
+                <a class="btn btn-info" href="/admin/carlist/carphotos/add/${carid}" style="margin-bottom: 15px"><i
+                            data-feather="plus-circle"></i>Add new photo</a>
                 <div class="row">
                     <div class="col-12 col-lg-8 col-xxl-9 d-flex" style="margin: 0 auto">
                         <div class="card flex-fill">
                             <div class="card-header">
-
                                 <h5 class="card-title mb-0">List of car photos</h5>
                             </div>
-
-
                             <div id="gallery">
                                 <div id="gallery-container">
                                     <div id="gallery-content">
@@ -367,6 +364,31 @@
                                     </div>
 
                                 </div>
+                            </div>
+                            <div class="table-responsive" style="margin-top: 30px">
+                                <table class="table table-hover my-0">
+                                    <thead>
+                                    <tr>
+                                        <th>Photo url</th>
+                                        <th>Remove</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <#if carphotolist?size!=0>
+                                        <#list carphotolist as carphoto>
+                                            <tr>
+                                                <td>${carphoto.photourl}</td>
+                                                <td><a href="/admin/carlist/delete/${carphoto.id}" style="width: 98px;" class="btn btn-danger"><span data-feather="trash-2"></span>Remove</a></td>
+
+                                            </tr>
+                                        </#list>
+                                    <#else>
+                                        <tr>
+                                            <td>No one car yet!</td>
+                                        </tr>
+                                    </#if>
+                                    </tbody>
+                                </table>
                             </div>
 
 
