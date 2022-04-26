@@ -186,6 +186,15 @@ public class AdminController {
         return "redirect:/admin/carlist/extracts/"+carid;
     }
 
+    @GetMapping("/carlist/extacts/remove/{id}/{idcar}")
+    public String removecarextract(@PathVariable("id")String id,
+                                   @PathVariable("idcar")String carid){
+
+        carExtractService.deletecarextract(Long.valueOf(id));
+
+        return "redirect:/admin/carlist/extracts/"+carid;
+    }
+
     @GetMapping("/contactlist/")
     public String contactlist(Model model) {
         model.addAttribute("contactlist", contactService.findAllContacts());

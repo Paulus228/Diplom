@@ -143,7 +143,7 @@
                                             <tr>
                                                 <td>${carservice.getonecar(extract.id_car).name}</td>
                                                 <td>${extract.extract}</td>
-                                                <td><a href="/admin/contactlist/remove/${extract.id}" style="width: 98px;" class="btn btn-danger"><span data-feather="trash-2"></span>Remove</a></td>
+                                                <td><a href="/admin/carlist/extacts/remove/${extract.id}/${extract.id_car}" style="width: 98px;" class="btn btn-danger"><span data-feather="trash-2"></span>Remove</a></td>
                                             </tr>
                                         </#list>
                                     <#else>
