@@ -378,7 +378,7 @@
                                         <#list carphotolist as carphoto>
                                             <tr>
                                                 <td>${carphoto.photourl}</td>
-                                                <td><a href="/admin/carlist/delete/${carphoto.id}" style="width: 98px;" class="btn btn-danger"><span data-feather="trash-2"></span>Remove</a></td>
+                                                <td><a href="/admin/carlist/carphotos/remove/${carphoto.id}/${carphoto.id_car}" style="width: 98px;" class="btn btn-danger"><span data-feather="trash-2"></span>Remove</a></td>
 
                                             </tr>
                                         </#list>

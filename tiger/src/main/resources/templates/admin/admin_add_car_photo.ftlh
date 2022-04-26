@@ -139,7 +139,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="m-sm-4">
-                                        <form method="post" action="/admin/carlist/carphotos/add/${carid}">
+                                        <form method="post" action="/admin/carlist/carphotos/add/${carid}/">
                                             <div class="mb-3">
                                                 <label class="form-label">Photo url</label>
                                                 <input required="required" maxlength="500" minlength="5" class="form-control form-control-lg" type="text" name="photo_url"

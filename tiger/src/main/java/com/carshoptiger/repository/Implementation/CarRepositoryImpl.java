@@ -33,7 +33,11 @@ public class CarRepositoryImpl implements CarRepository {
 
     @Override
     public Car getonecar(Long id_car) {
-        return databaseMysql.queryForObject("SELECT * FROM car WHERE id = ?",new BeanPropertyRowMapper<>(Car.class),id_car);
+        try {
+            return databaseMysql.queryForObject("SELECT * FROM car WHERE id = ?", new BeanPropertyRowMapper<>(Car.class), id_car);
+        }catch (CarNotFoundException carNotFoundException){
+            return null;
+        }
     }
 
     @Override

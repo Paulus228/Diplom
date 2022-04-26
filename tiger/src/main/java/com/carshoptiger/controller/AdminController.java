@@ -152,6 +152,12 @@ public class AdminController {
         return "redirect:/admin/carlist/carphotos/"+id;
     }
 
+    @GetMapping("/carlist/carphotos/remove/{id}/{idcar}")
+    public String removecarphoto(@PathVariable("id")String id,@PathVariable("idcar")String idcar){
+        carPhotoService.deletecarphoto(Long.valueOf(id));
+        return "redirect:/admin/carlist/carphotos/"+idcar;
+    }
+
     @GetMapping("/contactlist/")
     public String contactlist(Model model) {
         model.addAttribute("contactlist", contactService.findAllContacts());
