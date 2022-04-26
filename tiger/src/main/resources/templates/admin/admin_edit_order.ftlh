@@ -142,22 +142,22 @@
                                         <form method="post" action="/admin/orderlist/update/${orderupdate.id}">
                                             <div class="mb-3">
                                                 <label class="form-label">Country</label>
-                                                <input pattern="/.*\S.*/" required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="country"
+                                                <input   required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="country"
                                                        placeholder="Enter name car" value="${orderupdate.country}"/>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">City</label>
-                                                <input pattern="/.*\S.*/" required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="city"
+                                                <input   required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="city"
                                                        placeholder="Enter name car" value="${orderupdate.city}"/>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">City</label>
-                                                <input pattern="/.*\S.*/" required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="address"
+                                                <input   required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="address"
                                                        placeholder="Enter name car" value="${orderupdate.address}"/>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">City</label>
-                                                <input pattern="/.*\S.*/" required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="contactphone"
+                                                <input   required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="contactphone"
                                                        placeholder="Enter name car" value="${orderupdate.contactphone}"/>
                                             </div>
 

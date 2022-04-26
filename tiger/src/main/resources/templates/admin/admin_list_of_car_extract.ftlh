@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
     <meta name="author" content="AdminKit">
-    <meta name="keywords"
-          content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+    <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="shortcut icon" href="../../img/icons/Daco_47612.png"/>
@@ -20,20 +19,13 @@
     <link href="../../css/app.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Quicksand:wght@300&display=swap');
-
-        body {
-            font-family: 'Quicksand', sans-serif
-        }
+        body{
+            font-family: 'Quicksand', sans-serif }
     </style>
 </head>
 
 <body>
 
-<#if message_edit_car??>
-    <script>
-        alert("Error in edit car! Try yet!")
-    </script>
-</#if>
 <div class="wrapper">
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
@@ -60,28 +52,28 @@
                 </li>
                 <li class="sidebar-item active">
                     <a class="sidebar-link" href="/admin/carlist">
-                        <i class="align-middle" data-feather="list"></i> <span class="align-middle">List of car</span>
+                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of car</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin/userlist/">
-                        <i class="align-middle" data-feather="list"></i> <span class="align-middle">List of user</span>
+                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of user</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item ">
                     <a class="sidebar-link" href="/admin/contactlist/">
-                        <i class="align-middle" data-feather="list"></i> <span
+                        <i class="align-middle" data-feather="book"></i> <span
                                 class="align-middle">List of contacts</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin/orderlist/">
-                        <i class="align-middle" data-feather="list"></i> <span class="align-middle">List of order</span>
+                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">List of order</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin/testimonalslist/">
-                        <i class="align-middle" data-feather="list"></i> <span
+                        <i class="align-middle" data-feather="book"></i> <span
                                 class="align-middle">List of testimonals</span>
                     </a>
                 </li>
@@ -126,46 +118,45 @@
 
         <main class="content">
             <div class="container-fluid p-0">
-                <div class="row vh-80">
-                    <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
-                        <div class="d-table-cell align-middle">
-                            <div class="text-center mt-4">
-                                <h1 class="h2">Edit car with id - ${editcar.id}</h1>
-                                <p class="lead">
-                                    Start creating the best possible user experience for you customers.
-                                </p>
-                            </div>
 
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="m-sm-4">
-                                        <form method="post" action="/admin/carlist/edit/${editcar.id}">
-                                            <div class="mb-3">
-                                                <label class="form-label">Name</label>
-                                                <input   required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="name"
-                                                       placeholder="Enter name car" value="${editcar.name}"/>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Price: <#if editprice??>${editprice}</#if></label>
-                                                <input required="required" min="1" max="1000000" class="form-control form-control-lg" type="number" step="0.01" name="price"
-                                                       placeholder="Enter price" value="<#if editprice??>${editprice}</#if>"/>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Describe</label>
-                                                <textarea required="required" minlength="15" maxlength="455" name="description" class="form-control" rows="2" placeholder="Textarea">
-                                                    ${editcar.description}
-                                                </textarea>
-                                            </div>
-                                            <div class="text-center mt-3">
-                                                <button type="submit" class="btn btn-lg btn-primary">Save</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                <h1 class="h3 mb-3"><strong>Extract</strong> List</h1>
+                <a class="btn btn-info" href="/admin/carlist/extracts/add/${carid}" style="margin-bottom: 15px"><i data-feather="plus-circle"></i>Add new</a>
+                <div class="row">
+                    <div class="col-12 col-lg-8 col-xxl-9 d-flex" style="margin: 0 auto">
+                        <div class="card flex-fill">
+                            <div class="card-header">
 
+                                <h5 class="card-title mb-0">List of extract for car</h5>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover my-0">
+                                    <thead>
+                                    <tr>
+                                        <th>Car name</th>
+                                        <th>Extract</th>
+                                        <th class="d-none d-xl-table-cell">Remove</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <#if carextractlist?size!=0>
+                                        <#list carextractlist as extract>
+                                            <tr>
+                                                <td>${carservice.getonecar(extract.id_car).name}</td>
+                                                <td>${extract.extract}</td>
+                                                <td><a href="/admin/contactlist/remove/${extract.id}" style="width: 98px;" class="btn btn-danger"><span data-feather="trash-2"></span>Remove</a></td>
+                                            </tr>
+                                        </#list>
+                                    <#else>
+                                        <tr>
+                                            <td>No one extracts yet!</td>
+                                        </tr>
+                                    </#if>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </main>

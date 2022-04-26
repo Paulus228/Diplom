@@ -169,7 +169,7 @@
                                             <td><a href="/admin/carlist/delete/${car.id}" style="width: 98px;" class="btn btn-danger"><span data-feather="trash-2"></span>Remove</a></td>
                                             <td><a href="/admin/carlist/carphotos/${car.id}" class="btn btn-info" style="width: 90px"><span data-feather="camera"></span>Photos</a></td>
                                             <td><a class="btn btn-info">Car info</a></td>
-                                            <td><a class="btn btn-info">Car extract</a></td>
+                                            <td><a href="/admin/carlist/extracts/${car.id}" style="width: 120px" class="btn btn-info"><span data-feather="maximize"></span>Car extract</a></td>
                                         </tr>
                                     </#list>
                                 <#else>

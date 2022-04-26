@@ -31,6 +31,9 @@ public class AdminController {
     @Autowired
     private CarPhotoService carPhotoService;
 
+    @Autowired
+    private CarExtractService carExtractService;
+
     @GetMapping("/")
     public String adminhome(Model model) {
 
@@ -156,6 +159,31 @@ public class AdminController {
     public String removecarphoto(@PathVariable("id")String id,@PathVariable("idcar")String idcar){
         carPhotoService.deletecarphoto(Long.valueOf(id));
         return "redirect:/admin/carlist/carphotos/"+idcar;
+    }
+
+    @GetMapping("/carlist/extracts/{id}")
+    public String carextract(@PathVariable("id")String id,Model model){
+        model.addAttribute("carextractlist", carExtractService.findcarextractbycarid(Long.valueOf(id)));
+        model.addAttribute("carservice",carService);
+        model.addAttribute("carid",id);
+        return "admin/admin_list_of_car_extract";
+    }
+
+    @GetMapping("/carlist/extracts/add/{id}")
+    public String carextractaddpage(@PathVariable("id")String id, Model model){
+        model.addAttribute("carid",id);
+        return "admin/admin_add_car_extract";
+    }
+
+    @PostMapping("/carlist/extracts/add/{id}")
+    public String carextractadd(@PathVariable("id")String carid,
+                                @RequestParam(name="extract")String extract){
+        CarExtract carExtract = new CarExtract();
+        carExtract.setExtract(extract);
+        carExtract.setId_car(Long.valueOf(carid));
+        carExtractService.savecarextract(carExtract);
+
+        return "redirect:/admin/carlist/extracts/"+carid;
     }
 
     @GetMapping("/contactlist/")

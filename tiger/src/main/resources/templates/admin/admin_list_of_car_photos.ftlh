@@ -384,7 +384,7 @@
                                         </#list>
                                     <#else>
                                         <tr>
-                                            <td>No one car yet!</td>
+                                            <td>No one car photo yet!</td>
                                         </tr>
                                     </#if>
                                     </tbody>

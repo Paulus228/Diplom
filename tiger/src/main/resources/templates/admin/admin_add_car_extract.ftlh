@@ -11,13 +11,13 @@
           content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="../../img/icons/Daco_47612.png"/>
+    <link rel="shortcut icon" href="../../../img/icons/Daco_47612.png"/>
 
     <title>Car dealer tiger - Admin panel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <link href="../../css/app.css" rel="stylesheet">
+    <link href="../../../css/app.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Quicksand:wght@300&display=swap');
 
@@ -29,16 +29,16 @@
 
 <body>
 
-<#if message_edit_car??>
+<#if message_save_car??>
     <script>
-        alert("Error in edit car! Try yet!")
+        alert("Error in add car! Try yet!")
     </script>
 </#if>
 <div class="wrapper">
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
             <a class="sidebar-brand" href="/admin/">
-                <span class="align-middle" style="font-size: 15px;font-weight: 400"><img src="../../img/icons/Daco_47612.png" width="50" height="50"/> Car Dealer Tiger<br/> Admin panel</span>
+                <span class="align-middle" style="font-size: 15px;font-weight: 400"><img src="../../../img/icons/Daco_47612.png" width="50" height="50"/> Car Dealer Tiger<br/> Admin panel</span>
             </a>
             <ul class="sidebar-nav">
                 <li class="sidebar-header">
@@ -126,11 +126,11 @@
 
         <main class="content">
             <div class="container-fluid p-0">
-                <div class="row vh-80">
+                 <div class="row vh-80">
                     <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
                         <div class="d-table-cell align-middle">
                             <div class="text-center mt-4">
-                                <h1 class="h2">Edit car with id - ${editcar.id}</h1>
+                                <h1 class="h2">Add new car extract</h1>
                                 <p class="lead">
                                     Start creating the best possible user experience for you customers.
                                 </p>
@@ -139,25 +139,14 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="m-sm-4">
-                                        <form method="post" action="/admin/carlist/edit/${editcar.id}">
+                                        <form method="post" action="/admin/carlist/extracts/add/${carid}/">
                                             <div class="mb-3">
-                                                <label class="form-label">Name</label>
-                                                <input   required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="name"
-                                                       placeholder="Enter name car" value="${editcar.name}"/>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Price: <#if editprice??>${editprice}</#if></label>
-                                                <input required="required" min="1" max="1000000" class="form-control form-control-lg" type="number" step="0.01" name="price"
-                                                       placeholder="Enter price" value="<#if editprice??>${editprice}</#if>"/>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Describe</label>
-                                                <textarea required="required" minlength="15" maxlength="455" name="description" class="form-control" rows="2" placeholder="Textarea">
-                                                    ${editcar.description}
-                                                </textarea>
+                                                <label class="form-label">Car extract</label>
+                                                <input required="required" maxlength="500" minlength="5" class="form-control form-control-lg" type="text" name="extract"
+                                                       placeholder="Enter name car extract"/>
                                             </div>
                                             <div class="text-center mt-3">
-                                                <button type="submit" class="btn btn-lg btn-primary">Save</button>
+                                                 <button type="submit" class="btn btn-lg btn-primary">Save</button>
                                             </div>
                                         </form>
                                     </div>
@@ -172,7 +161,7 @@
     </div>
 </div>
 
-<script src="../../js/app.js"></script>
+<script src="../js/app.js"></script>
 
 </body>
 

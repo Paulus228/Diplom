@@ -38,7 +38,7 @@
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
             <a class="sidebar-brand" href="/admin/">
-                <span class="align-middle" style="font-size: 15px;font-weight: 400"><img src="img/icons/Daco_47612.png" width="50" height="50"/> Car Dealer Tiger<br/> Admin panel</span>
+                <span class="align-middle" style="font-size: 15px;font-weight: 400"><img src="../img/icons/Daco_47612.png" width="50" height="50"/> Car Dealer Tiger<br/> Admin panel</span>
             </a>
             <ul class="sidebar-nav">
                 <li class="sidebar-header">
@@ -142,7 +142,7 @@
                                         <form method="post" action="/admin/carlist/add">
                                             <div class="mb-3">
                                                 <label class="form-label">Name</label>
-                                                <input required="required" pattern="/.*\S.*/" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="name"
+                                                <input required="required"   maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="name"
                                                        placeholder="Enter name car"/>
                                             </div>
                                             <div class="mb-3">
@@ -152,7 +152,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Describe</label>
-                                                <textarea pattern="/.*\S.*/" required="required" minlength="15" maxlength="455" name="description" class="form-control" rows="2" placeholder="Textarea"></textarea>
+                                                <textarea  required="required" minlength="15" maxlength="455" name="description" class="form-control" rows="2" placeholder="Textarea"></textarea>
                                             </div>
                                             <div class="text-center mt-3">
                                                  <button type="submit" class="btn btn-lg btn-primary">Save</button>
