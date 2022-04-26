@@ -11,9 +11,9 @@
           content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png"/>
+    <link rel="shortcut icon" href="img/icons/Daco_47612.png"/>
 
-    <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
+    <title>Car dealer tiger - Admin panel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
@@ -52,7 +52,7 @@
                 <li class="sidebar-header">
                     Lists
                 </li>
-                <li class="sidebar-item active">
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin/carlist">
                         <i class="align-middle" data-feather="list"></i> <span class="align-middle">List of car</span>
                     </a>
@@ -235,7 +235,7 @@
                         <div class="card flex-fill w-100">
                             <div class="card-header">
 
-                                <h5 class="card-title mb-0">Browser Usage</h5>
+                                <h5 class="card-title mb-0">Cars</h5>
                             </div>
                             <div class="card-body d-flex">
                                 <div class="align-self-center w-100">
@@ -290,7 +290,7 @@
                         <div class="card flex-fill w-100">
                             <div class="card-header">
 
-                                <h5 class="card-title mb-0">Real-Time</h5>
+                                <h5 class="card-title mb-0">Our shop</h5>
                             </div>
                             <div class="card-body px-4">
                                 <div id="world_map" style="height:350px;"></div>
@@ -565,6 +565,14 @@
             {
                 coords: [40.416775, -3.703790],
                 name: "Madrid "
+            },
+            {
+                coords: [55.7522200, 37.6155600],
+                name: "Moscow"
+            },
+            {
+                coords: [53.9000000,27.5666700],
+                name: "Minsk"
             }
         ];
         var map = new jsVectorMap({

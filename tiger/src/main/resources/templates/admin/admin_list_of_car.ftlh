@@ -10,9 +10,9 @@
     <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <link rel="shortcut icon" href="img/icons/Daco_47612.png"/>
 
-    <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
+    <title>Car dealer tiger - Admin panel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
@@ -148,7 +148,7 @@
                                     <th class="d-none d-xl-table-cell">Date add</th>
                                     <th class="d-none d-xl-table-cell">Count buy</th>
                                     <th class="d-none d-md-table-cell">Description</th>
-                                    <th class="d-none d-md-table-cell">Edit</th>
+                                    <th>Edit</th>
                                     <th class="d-none d-md-table-cell">Remove</th>
                                     <th class="d-none d-md-table-cell">Photos</th>
                                     <th class="d-none d-md-table-cell">Car info</th>
@@ -165,9 +165,9 @@
                                             <td>${car.date_add}</td>
                                             <td>${car.count_buy}</td>
                                             <td>${car.description}</td>
-                                            <td><a href="/admin/carlist/edit/${car.id}" class="btn btn-info">Edit</a></td>
-                                            <td><a href="/admin/carlist/delete/${car.id}" class="btn btn-danger">Remove</a></td>
-                                            <td><a class="btn btn-info">Photos</a></td>
+                                            <td><a href="/admin/carlist/edit/${car.id}" style="width: 70px" class="btn btn-info"><span data-feather="edit"></span>Edit</a></td>
+                                            <td><a href="/admin/carlist/delete/${car.id}" style="width: 98px;" class="btn btn-danger"><span data-feather="trash-2"></span>Remove</a></td>
+                                            <td><a href="/admin/carlist/carphotos/${car.id}" class="btn btn-info" style="width: 90px"><span data-feather="camera"></span>Photos</a></td>
                                             <td><a class="btn btn-info">Car info</a></td>
                                             <td><a class="btn btn-info">Car extract</a></td>
                                         </tr>

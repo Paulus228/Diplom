@@ -10,9 +10,9 @@
     <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <link rel="shortcut icon" href="img/icons/Daco_47612.png"/>
 
-    <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
+    <title>Car dealer tiger - Admin panel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@
                 <li class="sidebar-header">
                     Lists
                 </li>
-                <li class="sidebar-item active">
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin/carlist">
                         <i class="align-middle" data-feather="list"></i> <span class="align-middle">List of car</span>
                     </a>
@@ -124,9 +124,14 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title mb-0">Empty card</h5>
+                                <h5 class="card-title mb-0">Info for you</h5>
                             </div>
                             <div class="card-body">
+                                Rick and Morty is an American adult animated science fiction sitcom created by Justin Roiland and Dan Harmon for Cartoon Network's nighttime programming block Adult Swim. The series follows the misadventures of cynical mad scientist Rick Sanchez and his good-hearted, but fretful grandson Morty Smith, who split their time between domestic life and interdimensional adventures.
+
+                                Roiland voices the eponymous characters, with Chris Parnell, Spencer Grammer and Sarah Chalke voicing the rest of Rick and Morty's family. The series originated from an animated short parody film of Back to the Future, created by Roiland for Channel 101, a short-film festival co-founded by Harmon. Since its debut, the series has received critical acclaim for its originality, creativity and humor.
+
+                                The fifth season premiered on June 20, 2021, and consisted of ten episodes. A sixth season was confirmed as part of a long-term deal in May 2018 that ordered 70 new episodes over an unspecified number of seasons.[2]
                             </div>
                         </div>
                     </div>

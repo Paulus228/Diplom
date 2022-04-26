@@ -31,6 +31,8 @@ public class AdminController {
     @Autowired
     private TestimonalsService testimonalsService;
 
+    @Autowired
+    private CarPhotoService carPhotoService;
 
     @GetMapping("/")
     public String adminhome(Model model) {
@@ -44,7 +46,7 @@ public class AdminController {
         model.addAttribute("visitor", userService.findAllUser().size());
         model.addAttribute("orderscount", orderSerivce.findAllOrder().size());
         model.addAttribute("summa", ref.summa_all_order);
-        model.addAttribute("sales", (int) orderSerivce.findAllOrder().stream().filter(o1 -> o1.getStatus_order().equals("sales")).count());
+        model.addAttribute("sales", (int) orderSerivce.findAllOrder().stream().filter(o1 -> o1.getStatus_order().equals("SALES")).count());
         model.addAttribute("latestorder", orderSerivce.findAllOrder().stream().limit(9).collect(Collectors.toList()));
         model.addAttribute("carservice", carService);
         return "admin/admin_home";
@@ -108,11 +110,15 @@ public class AdminController {
         boolean car_edit_result = carService.updatecar(editcar);
 
         if (car_edit_result) {
-            model.addAttribute("message_edit_car", "Car save success!");
+            String editprice = editcar.getPrice().toString().replace('.', ',');
+            model.addAttribute("editcar", editcar);
+            model.addAttribute("editprice", editprice);
+            model.addAttribute("message_edit_car", "Car edit success!");
             model.addAttribute("carlist", carService.findAllCar());
-            return "admin/admin_list_of_car";
+            return "redirect:/admin/carlist";
         } else {
-            model.addAttribute("message_edit_car", "Car save not success! Try yet!");
+            model.addAttribute("message_edit_car", "Car edit not success! Try yet!");
+            model.addAttribute("editcar",editcar);
             return "admin/admin_edit_car";
         }
     }
@@ -121,6 +127,15 @@ public class AdminController {
     public String carremove(@PathVariable("id") String id) {
         carService.deletecar(Long.valueOf(id));
         return "redirect:/admin/carlist";
+    }
+
+    @GetMapping("/carlist/carphotos/{id}")
+    public String carphotolist(@PathVariable("id")String id,
+                               Model model){
+
+        model.addAttribute("carphotolist",carPhotoService.findallByidCar(Long.valueOf(id)));
+
+        return "admin/admin_list_of_car_photos";
     }
 
     @GetMapping("/contactlist/")

@@ -11,9 +11,9 @@
           content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png"/>
+    <link rel="shortcut icon" href="img/icons/Daco_47612.png"/>
 
-    <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
+    <title>Car dealer tiger - Admin panel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
@@ -142,22 +142,22 @@
                                         <form method="post" action="/admin/orderlist/update/${orderupdate.id}">
                                             <div class="mb-3">
                                                 <label class="form-label">Country</label>
-                                                <input required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="country"
+                                                <input pattern="/.*\S.*/" required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="country"
                                                        placeholder="Enter name car" value="${orderupdate.country}"/>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">City</label>
-                                                <input required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="city"
+                                                <input pattern="/.*\S.*/" required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="city"
                                                        placeholder="Enter name car" value="${orderupdate.city}"/>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">City</label>
-                                                <input required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="address"
+                                                <input pattern="/.*\S.*/" required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="address"
                                                        placeholder="Enter name car" value="${orderupdate.address}"/>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">City</label>
-                                                <input required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="contactphone"
+                                                <input pattern="/.*\S.*/" required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="contactphone"
                                                        placeholder="Enter name car" value="${orderupdate.contactphone}"/>
                                             </div>
 
@@ -166,7 +166,7 @@
                                                 <select name="order_status" class="form-select" aria-label="Default select example" required="required">
                                                     <option <#if orderupdate.status_order=="PROCEED">selected</#if> value="PROCEED">Proceed</option>
                                                     <option <#if orderupdate.status_order=="ARRIVED">selected</#if> value="ARRIVED">Arrived</option>
-                                                    <option <#if orderupdate.status_order=="DECLINE">selected</#if> value="DECLINE">Decline</option>
+                                                    <option <#if orderupdate.status_order=="SALES">selected</#if> value="SALES">Sales</option>
                                                 </select>
                                             </div>
 

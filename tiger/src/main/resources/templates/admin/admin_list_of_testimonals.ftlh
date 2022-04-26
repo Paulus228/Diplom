@@ -10,9 +10,9 @@
     <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="../img/icons/icon-48x48.png" />
+    <link rel="shortcut icon" href="../img/icons/Daco_47612.png"/>
 
-    <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
+    <title>Car dealer tiger - Admin panel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
             <a class="sidebar-brand" href="/admin/">
-                <span class="align-middle" style="font-size: 15px;font-weight: 400"><img src="img/icons/Daco_47612.png" width="50" height="50"/> Car Dealer Tiger<br/> Admin panel</span>
+                <span class="align-middle" style="font-size: 15px;font-weight: 400"><img src="../img/icons/Daco_47612.png" width="50" height="50"/> Car Dealer Tiger<br/> Admin panel</span>
             </a>
             <ul class="sidebar-nav">
                 <li class="sidebar-header">
@@ -155,7 +155,7 @@
                                                 <td>${testimonals.fullname}</td>
                                                 <td>${testimonals.message_testimonals}</td>
                                                 <td>${testimonals.date_send}</td>
-                                                <td><a href="/admin/testimonalslist/remove/${testimonals.id}" class="btn btn-danger">Remove</a></td>
+                                                <td><a href="/admin/testimonalslist/remove/${testimonals.id}" class="btn btn-danger" style="width: 97px"><span data-feather="trash-2"></span>Remove</a></td>
                                             </tr>
                                         </#list>
                                     <#else>

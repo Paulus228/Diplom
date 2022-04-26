@@ -11,9 +11,9 @@
           content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png"/>
+    <link rel="shortcut icon" href="../../img/icons/Daco_47612.png"/>
 
-    <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
+    <title>Car dealer tiger - Admin panel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
@@ -38,17 +38,25 @@
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
             <a class="sidebar-brand" href="/admin/">
-                <span class="align-middle" style="font-size: 15px;font-weight: 400"><img src="img/icons/Daco_47612.png" width="50" height="50"/> Car Dealer Tiger<br/> Admin panel</span>
+                <span class="align-middle" style="font-size: 15px;font-weight: 400"><img src="../../img/icons/Daco_47612.png" width="50" height="50"/> Car Dealer Tiger<br/> Admin panel</span>
             </a>
             <ul class="sidebar-nav">
                 <li class="sidebar-header">
                     Administration
                 </li>
 
-                <li class="sidebar-item ">
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin/">
                         <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
                     </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="/admin/help">
+                        <i class="align-middle" data-feather="help-circle"></i> <span class="align-middle">Help center</span>
+                    </a>
+                </li>
+                <li class="sidebar-header">
+                    Lists
                 </li>
                 <li class="sidebar-item active">
                     <a class="sidebar-link" href="/admin/carlist">
@@ -134,13 +142,13 @@
                                         <form method="post" action="/admin/carlist/edit/${editcar.id}">
                                             <div class="mb-3">
                                                 <label class="form-label">Name</label>
-                                                <input required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="name"
+                                                <input pattern="/.*\S.*/" required="required" maxlength="255" minlength="5" class="form-control form-control-lg" type="text" name="name"
                                                        placeholder="Enter name car" value="${editcar.name}"/>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">Price: ${editprice}</label>
+                                                <label class="form-label">Price: <#if editprice??>${editprice}</#if></label>
                                                 <input required="required" min="1" max="1000000" class="form-control form-control-lg" type="number" step="0.01" name="price"
-                                                       placeholder="Enter price" value="${editprice}"/>
+                                                       placeholder="Enter price" value="<#if editprice??>${editprice}</#if>"/>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Describe</label>
@@ -164,7 +172,7 @@
     </div>
 </div>
 
-<script src="../js/app.js"></script>
+<script src="../../js/app.js"></script>
 
 </body>
 
