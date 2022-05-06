@@ -35,4 +35,8 @@ public class HomeController {
         return "user/index";
     }
 
+    @GetMapping("/aboutus")
+    public String aboutusPage(){
+        return "user/aboutus";
+    }
 }
