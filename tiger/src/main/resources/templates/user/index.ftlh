@@ -180,7 +180,7 @@
                     <div class="section-heading">
                         <h2>Happy Clients</h2>
                          <#if testimonals?size gt 0>
-                        <a href="testimonials.html">read more <i class="fa fa-angle-right"></i></a>
+                        <a href="/testimonals">read more <i class="fa fa-angle-right"></i></a>
                         </#if>
                     </div>
                 </div>
