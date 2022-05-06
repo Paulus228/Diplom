@@ -37,119 +37,32 @@
                         <a href="cars.html">view more <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-item">
-                        <a href="car-details.html"><img src="../users/img/product-1-370x270.jpg" alt=""></a>
-                        <div class="down-content">
-                            <a href="car-details.html"><h4>Lorem ipsum dolor sit amet, consectetur</h4></a>
+                <#list carlist as car>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="product-item">
+                            <a href="car-details.html">
+                                <#if carphotoservice.findallByidCar(car.id)?size gt 0>
+                                    <img src="${carphotoservice.findallByidCar(car.id)[0].photourl}" alt="${car.name}">
+                                    <#else>
+                                    <img src="/static/users/img/product-1-370x270.jpg" alt="${car.name}">
+                                </#if>
+                            </a>
+                            <div class="down-content">
+                                <a href="car-details.html"><h4>${car.name} - ${carinfoservice.getonecarinfobycarid(car.id).model}</h4></a>
 
-                            <h6><small><del> $11199.00</del></small> $11179.00</h6>
+                                <h6><small><del> $${car.price}</del></small> $${car.price-120}</h6>
 
-                            <p>190 hp &nbsp;/&nbsp; Petrol &nbsp;/&nbsp; 2008 &nbsp;/&nbsp; Used vehicle</p>
+                                <p>${carinfoservice.getonecarinfobycarid(car.id).power} hp &nbsp;/&nbsp; ${carinfoservice.getonecarinfobycarid(car.id).fuel} &nbsp;/&nbsp; ${carinfoservice.getonecarinfobycarid(car.id).first_reg} &nbsp;/&nbsp; ${carinfoservice.getonecarinfobycarid(car.id).model}</p>
 
-                            <small>
-                                <strong title="Author"><i class="fa fa-dashboard"></i> 130 000km</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Author"><i class="fa fa-cube"></i> 1800cc</strong>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Views"><i class="fa fa-cog"></i> Manual</strong>
-                            </small>
+                                <small>
+                                    <strong title="Author"><i class="fa fa-dashboard"></i> ${carinfoservice.getonecarinfobycarid(car.id).mileage}km</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <strong title="Author"><i class="fa fa-cube"></i> ${carinfoservice.getonecarinfobycarid(car.id).enginesize}cc</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <strong title="Views"><i class="fa fa-cog"></i> ${carinfoservice.getonecarinfobycarid(car.id).gearbox}</strong>
+                                </small>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-item">
-                        <a href="car-details.html"><img src="../users/img/product-2-370x270.jpg" alt=""></a>
-                        <div class="down-content">
-                            <a href="car-details.html"><h4>Lorem ipsum dolor sit amet, consectetur</h4></a>
-
-                            <h6><small><del> $11199.00</del></small> $11179.00</h6>
-
-                            <p>190 hp &nbsp;/&nbsp; Petrol &nbsp;/&nbsp; 2008 &nbsp;/&nbsp; Used vehicle</p>
-
-                            <small>
-                                <strong title="Author"><i class="fa fa-dashboard"></i> 130 000km</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Author"><i class="fa fa-cube"></i> 1800cc</strong>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Views"><i class="fa fa-cog"></i> Manual</strong>
-                            </small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-item">
-                        <a href="car-details.html"><img src="../users/img/product-3-370x270.jpg" alt=""></a>
-                        <div class="down-content">
-                            <a href="car-details.html"><h4>Lorem ipsum dolor sit amet, consectetur</h4></a>
-
-                            <h6><small><del> $11199.00</del></small> $11179.00</h6>
-
-                            <p>190 hp &nbsp;/&nbsp; Petrol &nbsp;/&nbsp; 2008 &nbsp;/&nbsp; Used vehicle</p>
-
-                            <small>
-                                <strong title="Author"><i class="fa fa-dashboard"></i> 130 000km</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Author"><i class="fa fa-cube"></i> 1800cc</strong>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Views"><i class="fa fa-cog"></i> Manual</strong>
-                            </small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-item">
-                        <a href="car-details.html"><img src="../users/img/product-4-370x270.jpg" alt=""></a>
-                        <div class="down-content">
-                            <a href="car-details.html"><h4>Lorem ipsum dolor sit amet, consectetur</h4></a>
-
-                            <h6><small><del> $11199.00</del></small> $11179.00</h6>
-
-                            <p>190 hp &nbsp;/&nbsp; Petrol &nbsp;/&nbsp; 2008 &nbsp;/&nbsp; Used vehicle</p>
-
-                            <small>
-                                <strong title="Author"><i class="fa fa-dashboard"></i> 130 000km</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Author"><i class="fa fa-cube"></i> 1800cc</strong>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Views"><i class="fa fa-cog"></i> Manual</strong>
-                            </small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-item">
-                        <a href="car-details.html"><img src="../users/img/product-5-370x270.jpg" alt=""></a>
-                        <div class="down-content">
-                            <a href="car-details.html"><h4>Lorem ipsum dolor sit amet, consectetur</h4></a>
-
-                            <h6><small><del> $11199.00</del></small> $11179.00</h6>
-
-                            <p>190 hp &nbsp;/&nbsp; Petrol &nbsp;/&nbsp; 2008 &nbsp;/&nbsp; Used vehicle</p>
-
-                            <small>
-                                <strong title="Author"><i class="fa fa-dashboard"></i> 130 000km</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Author"><i class="fa fa-cube"></i> 1800cc</strong>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Views"><i class="fa fa-cog"></i> Manual</strong>
-                            </small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-item">
-                        <a href="car-details.html"><img src="../users/img/product-6-370x270.jpg" alt=""></a>
-                        <div class="down-content">
-                            <a href="car-details.html"><h4>Lorem ipsum dolor sit amet, consectetur</h4></a>
-
-                            <h6><small><del> $11199.00</del></small> $11179.00</h6>
-
-                            <p>190 hp &nbsp;/&nbsp; Petrol &nbsp;/&nbsp; 2008 &nbsp;/&nbsp; Used vehicle</p>
-
-                            <small>
-                                <strong title="Author"><i class="fa fa-dashboard"></i> 130 000km</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Author"><i class="fa fa-cube"></i> 1800cc</strong>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Views"><i class="fa fa-cog"></i> Manual</strong>
-                            </small>
-                        </div>
-                    </div>
-                </div>
+                </#list>
             </div>
         </div>
     </div>
@@ -176,7 +89,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="right-image">
-                        <img src="../users/img/about-1-570x350.jpg" alt="">
+                        <img src="/static/users/img/about-1-570x350.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -196,7 +109,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
-                        <a href="#" class="services-item-image"><img src="../users/img/blog-1-370x270.jpg" class="img-fluid" alt=""></a>
+                        <a href="#" class="services-item-image"><img src="/static/users/img/blog-1-370x270.jpg" class="img-fluid" alt=""></a>
 
                         <div class="down-content">
                             <h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</a></h4>
@@ -207,7 +120,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
-                        <a href="#" class="services-item-image"><img src="../users/img/blog-2-370x270.jpg" class="img-fluid" alt=""></a>
+                        <a href="#" class="services-item-image"><img src="/static/users/img/blog-2-370x270.jpg" class="img-fluid" alt=""></a>
 
                         <div class="down-content">
                             <h4><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit</a></h4>
@@ -218,7 +131,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
-                        <a href="#" class="services-item-image"><img src="../users/img/blog-3-370x270.jpg" class="img-fluid" alt=""></a>
+                        <a href="#" class="services-item-image"><img src="/static/users/img/blog-3-370x270.jpg" class="img-fluid" alt=""></a>
 
                         <div class="down-content">
                             <h4><a href="#">Aperiam modi voluptatum fuga officiis cumque</a></h4>
