@@ -35,7 +35,9 @@
     <!-- ***** Preloader End ***** -->
     <#include "navbar.ftlh"/>
          <#nested>
+    <div style="margin-bottom: 50px">
 
+    </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="/static/users/vendor/jquery/jquery.min.js"></script>

@@ -179,13 +179,13 @@
                 <div class="col-md-12">
                     <div class="section-heading">
                         <h2>Happy Clients</h2>
-                         <#if testimonals?size gt 0>
-                        <a href="/testimonals">read more <i class="fa fa-angle-right"></i></a>
+                        <#if testimonals?size gt 0>
+                            <a href="/testimonals">read more <i class="fa fa-angle-right"></i></a>
                         </#if>
                     </div>
                 </div>
                 <#if testimonals?size gt 0>
-                <div class="col-md-12">
+                    <div class="col-md-12">
                         <div class="owl-clients owl-carousel text-center">
                             <#list testimonals as testi>
                                 <div class="service-item">
@@ -199,7 +199,7 @@
                                 </div>
                             </#list>
                         </div>
-                </div>
+                    </div>
                 <#else>
                     <p style="text-align: center">Testimonals no has yet!</p>
                 </#if>

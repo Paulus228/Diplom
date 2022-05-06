@@ -17,6 +17,9 @@
 
     <div class="services section-background">
         <div class="container">
+            <div style="">
+                <a href="/testimonals/write" class="filled-button">Write testimonals</a>
+            </div>
             <#if testimonals?size gt 0>
             <div class="row">
                 <#list testimonals as testi>
