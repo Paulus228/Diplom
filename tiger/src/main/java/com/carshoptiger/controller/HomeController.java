@@ -46,4 +46,9 @@ public class HomeController {
     public String aboutusPage(){
         return "user/aboutus";
     }
+
+    @GetMapping("/terms")
+    public String termsPage(){
+        return "user/terms";
+    }
 }
