@@ -220,7 +220,7 @@
                                     author nulla.</p>
                             </div>
                             <div class="col-lg-4 col-md-6 text-right">
-                                <a href="contact.html" class="filled-button">Contact Us</a>
+                                <a href="/contact/" class="filled-button">Contact Us</a>
                             </div>
                         </div>
                     </div>

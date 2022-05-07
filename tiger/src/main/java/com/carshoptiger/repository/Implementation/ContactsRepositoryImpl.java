@@ -15,9 +15,9 @@ public class ContactsRepositoryImpl implements ContactsRepository {
 
     @Override
     public boolean savecontact(Contacts contact) {
-        return databaseMysql.update("insert into contacts(id, fullname, email, subject, message, date_send) " +
-                "values(?,?,?,?,?,?)",contact.getId(),contact.getFullname(),
-                contact.getEmail(),contact.getMessage(),contact.getDate_send())>0;
+        return databaseMysql.update("insert into contacts( fullname, email, subject, message, date_send) " +
+                "values(?,?,?,?,?)",contact.getFullname(),
+                contact.getEmail(),contact.getSubject(),contact.getMessage(),contact.getDate_send())>0;
     }
 
     @Override
