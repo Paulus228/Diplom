@@ -51,4 +51,9 @@ public class HomeController {
     public String termsPage(){
         return "user/terms";
     }
+
+    @GetMapping("/team")
+    public String teamPage(){
+        return "user/team";
+    }
 }
