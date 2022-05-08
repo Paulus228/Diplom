@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="/static/users/css/fontawesome.css">
         <link rel="stylesheet" href="/static/users/css/style.css">
         <link rel="stylesheet" href="/static/users/css/owl.css">
+        <link rel="stylesheet" type="text/css" href="/static/users/css/paging.css">
 
     </head>
 
@@ -47,4 +48,6 @@
     <!-- Additional Scripts -->
     <script src="/static/users/js/custom.js"></script>
     <script src="/static/users/js/owl.js"></script>
+    <script type="text/javascript" src="/static/users/js/paging.min.js"></script>
+
 </#macro>
