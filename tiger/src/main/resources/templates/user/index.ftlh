@@ -35,7 +35,7 @@
                     <div class="section-heading">
                         <h2>Featured Cars</h2>
                         <#if carlist?size gt 0>
-                            <a href="cars.html">view more <i class="fa fa-angle-right"></i></a>
+                            <a href="/cars/all">view more <i class="fa fa-angle-right"></i></a>
                         </#if>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     <#list carlist as car>
                         <div class="col-lg-4 col-md-6">
                             <div class="product-item">
-                                <a href="car-details.html">
+                                <a href="/cars/${car.id}">
                                     <#if carphotoservice.findallByidCar(car.id)?size gt 0>
                                         <img src="${carphotoservice.findallByidCar(car.id)[0].photourl}"
                                              alt="${car.name}">
@@ -52,7 +52,7 @@
                                     </#if>
                                 </a>
                                 <div class="down-content">
-                                    <a href="car-details.html"><h4>${car.name}
+                                    <a href="/cars/${car.id}"><h4>${car.name}
                                             - ${carinfoservice.getonecarinfobycarid(car.id).model}</h4></a>
 
                                     <h6><small>
