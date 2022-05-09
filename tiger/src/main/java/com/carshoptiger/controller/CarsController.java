@@ -7,9 +7,7 @@ import com.carshoptiger.service.API.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/cars")
@@ -42,6 +40,21 @@ public class CarsController {
         model.addAttribute("carinfoservice",carInfoService);
         model.addAttribute("carExtractService",carExtractService);
         return "user/carone";
+    }
+
+    @PostMapping("/find")
+    public String carfind(@RequestParam(name = "name_find")String name,
+                          Model model){
+        if(!name.equals("")) {
+            model.addAttribute("carlist", carService.findCarByName(name));
+            model.addAttribute("carphotoservice", carPhotoService);
+            model.addAttribute("carinfoservice", carInfoService);
+        }else{
+            model.addAttribute("carlist", carService.findAllCar());
+            model.addAttribute("carphotoservice", carPhotoService);
+            model.addAttribute("carinfoservice", carInfoService);
+        }
+        return "user/carlist";
     }
 
 }

@@ -21,119 +21,22 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="contact-form">
+                        <form action="/cars/find" method="post">
+                            <label for="name_find">Car name :</label>
+                            <input type="text" minlength="3" maxlength="50" required="required" id="name_find" name="name_find">
+                            <button style="width: 100px;margin-top: 10px" type="submit" class="filled-button btn-block">Search</button>
+                        </form>
+                        <hr>
                         <form action="#">
-                            <label>Used/New:</label>
-
-                            <select class="form-control">
-                                <option value="">All</option>
-                                <option value="new">New vehicle</option>
-                                <option value="used">Used vehicle</option>
-                            </select>
-
-                            <label>Vehicle Type:</label>
-
-                            <select class="form-control">
-                                <option value="">--All --</option>
-                                <option value="">--All --</option>
-                                <option value="">--All --</option>
-                                <option value="">--All --</option>
-                                <option value="">--All --</option>
-                            </select>
-
-                            <label>Make:</label>
-
-                            <select class="form-control">
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                            </select>
-
-                            <label>Model:</label>
-
-                            <select class="form-control">
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                            </select>
-
-                            <label>Price:</label>
-
-                            <select class="form-control">
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                            </select>
-
-                            <label>Mileage:</label>
-
-                            <select class="form-control">
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                            </select>
-
-                            <label>Engine size:</label>
-
-                            <select class="form-control">
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                            </select>
-
-                            <label>Power:</label>
-
-                            <select class="form-control">
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                            </select>
-
-                            <label>Fuel:</label>
-
-                            <select class="form-control">
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                            </select>
-
-                            <label>Gearbox:</label>
-
-                            <select class="form-control">
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                            </select>
-
-                            <label>Doors:</label>
-
-                            <select class="form-control">
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                            </select>
-
-                            <label>Number of seats:</label>
-
-                            <select class="form-control">
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                            </select>
-
-                            <button type="submit" class="filled-button btn-block">Search</button>
+                            <label for="name_find">Car name :</label>
+                            <input type="text" minlength="3" maxlength="50" required="required" id="name_find" name="name_find">
+                            <button style="width: 100px;margin-top: 10px" type="submit" class="filled-button btn-block">Search</button>
+                        </form>
+                        <hr>
+                        <form action="#">
+                            <label for="name_find">Car name :</label>
+                            <input type="text" minlength="3" maxlength="50" required="required" id="name_find" name="name_find">
+                            <button style="width: 100px; margin-top: 10px" type="submit" class="filled-button btn-block">Search</button>
                         </form>
                     </div>
                 </div>
@@ -143,7 +46,7 @@
                         <#list carlist as car>
                             <div class="col-md-6">
                                 <div class="product-item">
-                                    <a href="car-details.html">
+                                    <a href="/cars/${car.id}">
                                         <#if carphotoservice.findallByidCar(car.id)?size gt 0>
                                             <img src="${carphotoservice.findallByidCar(car.id)[0].photourl}"
                                                  alt="${car.name}">
@@ -152,7 +55,7 @@
                                         </#if>
                                     </a>
                                     <div class="down-content">
-                                        <a href="car-details.html"><h4>${car.name}
+                                        <a href="/cars/${car.id}"><h4>${car.name}
                                                 - ${carinfoservice.getonecarinfobycarid(car.id).model}</h4></a>
                                         <h6><small>
                                                 <del> $${car.price}</del>

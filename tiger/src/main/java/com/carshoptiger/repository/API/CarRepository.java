@@ -11,4 +11,5 @@ public interface CarRepository {
     Car getonecar(Long id_car);
     List<Car>findAllCar();
     List<Car>findCarByName(String name);
+
  }

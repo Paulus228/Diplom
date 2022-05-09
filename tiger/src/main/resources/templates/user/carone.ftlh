@@ -24,10 +24,10 @@
                 <div class="col-md-6">
                     <div>
                         <#if carphotoservice.findallByidCar(car.id)?size gt 0>
-                            <img class="img-fluid" src="${carphotoservice.findallByidCar(car.id)[0].photourl}"
+                            <img class="img-fluid wc-image" src="${carphotoservice.findallByidCar(car.id)[0].photourl}"
                                  alt="${car.name}">
                         <#else>
-                            <img class="img-fluid" src="/static/users/img/product-1-370x270.jpg" alt="${car.name}">
+                            <img class="img-fluid wc-image" src="/static/users/img/product-1-370x270.jpg" alt="${car.name}">
                         </#if>
                     </div>
                     <br>
@@ -40,7 +40,7 @@
                                              alt="${car.name}" class="img-fluid">
                                     </#list>
                                 <#else>
-                                    <img src="/static/users/img/product-1-370x270.jpg" alt="${car.name}">
+                                    <img src="/static/users/img/product-1-370x270.jpg" alt="${car.name}" class="img-fluid">
                                 </#if>
                             </div>
                             <br>

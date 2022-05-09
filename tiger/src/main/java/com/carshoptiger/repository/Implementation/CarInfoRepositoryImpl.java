@@ -43,4 +43,6 @@ public class CarInfoRepositoryImpl implements CarInfoRepository {
     public boolean deletecarinfo(Long id_carinfo) {
         return databaseMysql.update("DELETE FROM carinfo WHERE id = ?",id_carinfo)>0;
     }
+
+
 }
