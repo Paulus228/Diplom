@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.stream.Collectors;
+
 @Controller
 @RequestMapping("/cars")
 public class CarsController {
@@ -47,6 +49,23 @@ public class CarsController {
                           Model model){
         if(!name.equals("")) {
             model.addAttribute("carlist", carService.findCarByName(name));
+            model.addAttribute("carphotoservice", carPhotoService);
+            model.addAttribute("carinfoservice", carInfoService);
+        }else{
+            model.addAttribute("carlist", carService.findAllCar());
+            model.addAttribute("carphotoservice", carPhotoService);
+            model.addAttribute("carinfoservice", carInfoService);
+        }
+        return "user/carlist";
+    }
+
+    @PostMapping("/findprice")
+    public String carfindByPrice(@RequestParam(name = "price_find")String price,
+                          Model model){
+        if(!price.equals("")) {
+            model.addAttribute("carlist", carService.findAllCar().stream().
+                    filter(o1->o1.getPrice()
+                    <=Float.parseFloat(price)).collect(Collectors.toList()));
             model.addAttribute("carphotoservice", carPhotoService);
             model.addAttribute("carinfoservice", carInfoService);
         }else{

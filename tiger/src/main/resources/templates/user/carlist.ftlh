@@ -27,9 +27,9 @@
                             <button style="width: 100px;margin-top: 10px" type="submit" class="filled-button btn-block">Search</button>
                         </form>
                         <hr>
-                        <form action="#">
-                            <label for="name_find">Car name :</label>
-                            <input type="text" minlength="3" maxlength="50" required="required" id="name_find" name="name_find">
+                        <form action="/cars/findprice" method="post">
+                            <label for="price_find">Car price :</label>
+                            <input type="text" min="1" max="100000" required="required" id="price_find" name="price_find">
                             <button style="width: 100px;margin-top: 10px" type="submit" class="filled-button btn-block">Search</button>
                         </form>
                         <hr>
