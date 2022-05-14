@@ -119,4 +119,9 @@ public class BeanConfig {
     public BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder(8);
     }
+
+    @Bean
+    public MailSender mailSender(){
+        return new MailSenderImpl();
+    }
 }

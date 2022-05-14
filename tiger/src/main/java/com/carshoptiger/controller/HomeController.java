@@ -2,10 +2,7 @@ package com.carshoptiger.controller;
 
 import com.carshoptiger.domain.Car;
 import com.carshoptiger.domain.Testimonals;
-import com.carshoptiger.service.API.CarInfoService;
-import com.carshoptiger.service.API.CarPhotoService;
-import com.carshoptiger.service.API.CarService;
-import com.carshoptiger.service.API.TestimonalsService;
+import com.carshoptiger.service.API.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +13,9 @@ import java.util.stream.Collectors;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    private MailSender mailSender;
 
     @Autowired
     private CarService carService;
@@ -54,6 +54,6 @@ public class HomeController {
 
     @GetMapping("/team")
     public String teamPage(){
-        return "user/team";
+         return "user/team";
     }
 }

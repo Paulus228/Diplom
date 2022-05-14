@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService {
         Optional<User> userfromdb = Optional.ofNullable(userRepository.findUserByUsername(user.getUsername(),user.getEmail()));
         if (!userfromdb.isPresent()) {
             if (UserValidator.UserValidation(user)) {
+
                 user.setDate_add(new Date(new java.util.Date().getTime()));
                 user.setPassword(passwordEncoder.encode(user.getPassword()));
                 result_save = userRepository.saveuser(user);
