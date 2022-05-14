@@ -1,14 +1,14 @@
 package com.carshoptiger.util.exception;
 
-import org.springframework.dao.DataAccessException;
+import org.springframework.dao.EmptyResultDataAccessException;
 
-public class UserNotFoundException extends DataAccessException {
+public class UserNotFoundException extends EmptyResultDataAccessException {
     public UserNotFoundException(String message) {
-        super(message);
+        super(0);
     }
 
     public UserNotFoundException(String message, Throwable cause) {
-        super(message, cause);
+        super(message, 0);
     }
 
 

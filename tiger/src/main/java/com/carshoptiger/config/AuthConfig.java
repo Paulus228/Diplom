@@ -26,7 +26,7 @@ public class AuthConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/", "/cars/**","/contact/**","/static/**","/**",
-                "/testimonals","/registration").permitAll()
+                "/testimonals","/signup").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
