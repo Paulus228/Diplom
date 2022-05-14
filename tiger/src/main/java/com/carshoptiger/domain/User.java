@@ -1,8 +1,11 @@
 package com.carshoptiger.domain;
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.sql.Date;
+import java.util.Collection;
 
 
 @Getter
@@ -11,7 +14,7 @@ import java.sql.Date;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class User {
+public class User implements UserDetails {
     private Long id;
     private String name;
     private String soname;
@@ -22,4 +25,36 @@ public class User {
     private String activationcode;
     private Date date_add;
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    public boolean isAdmin(){
+        return this.roles==Role.ADMIN;
+    }
+
+    public boolean isManager(){
+        return this.roles==Role.MANAGER;
+    }
 }
