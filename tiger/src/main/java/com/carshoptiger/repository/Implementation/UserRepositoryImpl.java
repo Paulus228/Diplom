@@ -55,4 +55,13 @@ public final class UserRepositoryImpl implements UserRepository {
             return null;
         }
     }
+
+    @Override
+    public User findUserByActivationCode(String activationCode) {
+        try {
+            return databaseMysql.queryForObject("select * from user where activationcode =?", new BeanPropertyRowMapper<>(User.class), activationCode);
+        }catch (UserNotFoundException userNotFoundException){
+            return null;
+        }
+    }
 }

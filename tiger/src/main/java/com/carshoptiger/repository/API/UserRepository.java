@@ -11,4 +11,5 @@ public interface UserRepository {
     List<User>findAllUser();
     User findUserByUsername(String username,String email);
     User getuserbyid(Long id);
+    User findUserByActivationCode(String activationCode);
 }
