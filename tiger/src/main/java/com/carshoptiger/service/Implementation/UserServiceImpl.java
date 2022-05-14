@@ -6,9 +6,13 @@ import com.carshoptiger.service.API.BasketService;
 import com.carshoptiger.service.API.UserService;
 import com.carshoptiger.util.validators.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Optional;
 
 
 public class UserServiceImpl implements UserService {
@@ -19,6 +23,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private BasketService basketService;
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     @Override
     public boolean saveuser(User user) {
         boolean result_save;
@@ -26,6 +33,7 @@ public class UserServiceImpl implements UserService {
         if (userIsexists == null) {
             if (UserValidator.UserValidation(user)) {
                 user.setDate_add(new Date(new java.util.Date().getTime()));
+                user.setPassword(passwordEncoder.encode(user.getPassword()));
                 result_save = userRepository.saveuser(user);
                 basketService.InitBasket(userRepository.findUserByUsername(user.getUsername()).getId());
             } else {
@@ -80,5 +88,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getuserbyid(Long id) {
         return userRepository.getuserbyid(id);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<User> optionalUser = Optional.ofNullable
+                (userRepository.findUserByUsername(username));
+        if(optionalUser.isPresent()){
+            return optionalUser.get();
+        }else{
+            throw new UsernameNotFoundException("User with username not found");
+        }
     }
 }
