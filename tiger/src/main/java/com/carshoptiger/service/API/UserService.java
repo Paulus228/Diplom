@@ -10,6 +10,6 @@ public interface UserService extends UserDetailsService {
     boolean updateuser(User user);
     boolean deleteuser(User user);
     List<User> findAllUser();
-    User findUserByUsername(String username);
+    User findUserByUsername(String username,String email);
     User getuserbyid(Long id);
 }

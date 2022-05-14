@@ -29,13 +29,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean saveuser(User user) {
         boolean result_save;
-        User userIsexists = userRepository.findUserByUsername(user.getUsername());
-        if (userIsexists == null) {
+        Optional<User> userfromdb = Optional.ofNullable(userRepository.findUserByUsername(user.getUsername(),user.getEmail()));
+        if (!userfromdb.isPresent()) {
             if (UserValidator.UserValidation(user)) {
                 user.setDate_add(new Date(new java.util.Date().getTime()));
                 user.setPassword(passwordEncoder.encode(user.getPassword()));
                 result_save = userRepository.saveuser(user);
-                basketService.InitBasket(userRepository.findUserByUsername(user.getUsername()).getId());
+                basketService.InitBasket(userRepository.findUserByUsername(user.getUsername(),user.getEmail()).getId());
             } else {
                 result_save = false;
             }
@@ -77,11 +77,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findUserByUsername(String username) {
+    public User findUserByUsername(String username,String email) {
         if (username.equals("")) {
             return null;
         } else {
-            return userRepository.findUserByUsername(username);
+            return userRepository.findUserByUsername(username,email);
         }
     }
 
@@ -93,7 +93,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> optionalUser = Optional.ofNullable
-                (userRepository.findUserByUsername(username));
+                (userRepository.findUserByUsername(username,""));
         if(optionalUser.isPresent()){
             return optionalUser.get();
         }else{

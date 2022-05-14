@@ -42,14 +42,14 @@ create table if not exists  carphoto(
                          id int primary key auto_increment,
                          id_car int,
                          photourl varchar(700),
-                         FOREIGN KEY (id_car) REFERENCES car (id)
+                         FOREIGN KEY (id_car) REFERENCES car (id) on delete cascade
 );
 
 create table if not exists  carextract(
                            id int primary key auto_increment,
                            id_car int,
                            extract varchar(255),
-                           FOREIGN KEY (id_car) REFERENCES car (id)
+                           FOREIGN KEY (id_car) REFERENCES car (id) on delete cascade
 );
 
 create table if not exists  carinfo(
@@ -67,19 +67,19 @@ create table if not exists  carinfo(
                         numberseat int,
                         doors varchar(200),
                         color varchar(255),
-                        FOREIGN KEY (id_car) REFERENCES car (id)
+                        FOREIGN KEY (id_car) REFERENCES car (id) on delete cascade
 );
 
 
 create table if not exists  basketuser(
 	id_basket int primary key auto_increment,
     id_user int,
-    FOREIGN KEY (id_user) REFERENCES user (id)
+    FOREIGN KEY (id_user) REFERENCES user (id) on delete cascade
 );
 
 create table if not exists  basketcar(
-	id_basket_user int,
-    id_car int,
-	FOREIGN KEY (id_basket_user) REFERENCES basketuser (id_basket),
-	FOREIGN KEY (id_car) REFERENCES car (id)
+	id_basket_user int ,
+    id_car int ,
+	FOREIGN KEY (id_basket_user) REFERENCES basketuser (id_basket) on delete cascade,
+	FOREIGN KEY (id_car) REFERENCES car (id) on delete cascade
 );

@@ -4,6 +4,7 @@ import com.carshoptiger.domain.User;
 import com.carshoptiger.repository.API.UserRepository;
 import com.carshoptiger.util.exception.UserNotFoundException;
 import lombok.AllArgsConstructor;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -16,8 +17,8 @@ public final class UserRepositoryImpl implements UserRepository {
 
     @Override
     public boolean saveuser(User user) {
-        return databaseMysql.update("insert into user(id, name, soname, username, password, roles, activationcode, email)values(?,?,?,?,?,?,?,?)",
-                user.getId(), user.getName(), user.getSoname(), user.getUsername(), user.getPassword(), user.getRoles().name(), user.getActivationcode(), user.getEmail()) > 0;
+        return databaseMysql.update("insert into user(id, name, soname, username, password, roles, activationcode, email,date_add)values(?,?,?,?,?,?,?,?,?)",
+                user.getId(), user.getName(), user.getSoname(), user.getUsername(), user.getPassword(), user.getRoles().name(), user.getActivationcode(), user.getEmail(),user.getDate_add()) > 0;
     }
 
     @Override
@@ -37,11 +38,11 @@ public final class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User findUserByUsername(String username) {
-        String findname = "%" + username + "%";
+    public User findUserByUsername(String username,String email) {
         try {
-            return databaseMysql.queryForObject("select * from user where username=?", new BeanPropertyRowMapper<>(User.class), findname);
-        } catch (UserNotFoundException userNotFoundException) {
+            return databaseMysql.queryForObject("select * from user where username=? or email=?",
+                    new BeanPropertyRowMapper<>(User.class), username,email);
+        } catch (EmptyResultDataAccessException userNotFoundException) {
             return null;
         }
     }

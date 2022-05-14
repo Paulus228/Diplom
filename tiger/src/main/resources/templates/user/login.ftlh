@@ -1,7 +1,12 @@
 <#import "../patterns/common.ftlh" as common>
 
 <@common.page>
-    <main class="d-flex w-100" s>
+    <script>
+        <#if message??>
+            alert("Success sign up! Welcome!");
+        </#if>
+    </script>
+    <main class="d-flex w-100" >
         <div class="container d-flex flex-column" style="margin-top: 100px">
             <div class="row vh-100">
                 <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
@@ -32,7 +37,7 @@
                                         </div>
                                         <div>
                                             <label class="form-check">
-                                               <a href="/signup">No account? Create now!</a>
+                                               <a href="/signup/">No account? Create now!</a>
                                             </label>
                                         </div>
                                         <div class="text-center mt-3">

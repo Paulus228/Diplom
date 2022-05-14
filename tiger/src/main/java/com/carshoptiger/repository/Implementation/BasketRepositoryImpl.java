@@ -34,7 +34,7 @@ public class BasketRepositoryImpl implements BasketRepository {
 
     @Override
     public boolean InitBasket(Long id_user) {
-        return databaseMysql.update("INSERT INTO basket_user(id_user) VALUES(?)")>0;
+        return databaseMysql.update("INSERT INTO basketuser(id_user) VALUES(?)",id_user)>0;
     }
 
     @Override
