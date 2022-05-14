@@ -6,10 +6,7 @@ import com.carshoptiger.service.API.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 
@@ -42,7 +39,6 @@ public class SignupController {
         user.setRoles(Role.USER);
 
         boolean user_save = userService.saveuser(user);
-        System.out.println("USER - " + user_save);
         if(user_save){
             model.addAttribute("message","Success sign up! Thank you!");
             return "redirect:/login";
@@ -51,6 +47,20 @@ public class SignupController {
             return "user/signup";
         }
 
+    }
 
+    @GetMapping("/activate/{code}/{username}")
+    public String activate(Model model, @PathVariable("code") String code,@PathVariable("username")String username) {
+        boolean isActivated = userService.activateUser(code,username);
+
+        if (isActivated) {
+            model.addAttribute("messageType", "success");
+            model.addAttribute("message", "User successfully activated");
+        } else {
+            model.addAttribute("messageType", "danger");
+            model.addAttribute("message", "Activation code is not found!");
+        }
+
+        return "user/login";
     }
 }

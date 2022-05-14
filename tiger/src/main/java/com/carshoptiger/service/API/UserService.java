@@ -12,4 +12,6 @@ public interface UserService extends UserDetailsService {
     List<User> findAllUser();
     User findUserByUsername(String username,String email);
     User getuserbyid(Long id);
+    boolean activateUser(String code,String username);
+    void sendMessage(User user,String code);
 }
