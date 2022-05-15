@@ -19,7 +19,7 @@ public class CarExtractRepositoryImpl implements CarExtractRepository {
 
     @Override
     public boolean updatecarextract(CarExtract carExtract) {
-        return databaseMySql.update("UPDATE carextract SET extract=? WHERE id=?",carExtract.getId())>0;
+        return databaseMySql.update("UPDATE carextract SET extract=? WHERE id=?",carExtract.getExtract(),carExtract.getId())>0;
     }
 
     @Override

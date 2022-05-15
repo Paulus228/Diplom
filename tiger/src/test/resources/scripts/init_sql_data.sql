@@ -39,3 +39,17 @@ SELECT 777, 'Contacts','PhotoUrlDelete','2020-05-12'
     NOT EXISTS (
         SELECT id FROM testimonals WHERE id = 777
     );
+
+insert into carextract(id, id_car, extract)
+SELECT 777, 775,'Testtest'
+    WHERE
+    NOT EXISTS (
+        SELECT id FROM carextract WHERE id = 777
+    );
+
+insert into carextract(id, id_car, extract)
+SELECT 778, 775,'Testtest'
+    WHERE
+    NOT EXISTS (
+        SELECT id FROM carextract WHERE id = 778
+    );
