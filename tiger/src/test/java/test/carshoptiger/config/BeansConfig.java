@@ -8,7 +8,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -102,4 +105,20 @@ public class BeansConfig {
 
     @Bean
     public OrderSerivce orderSerivce(){return new OrderServiceImpl(orderRepository(),carService());}
+
+    @Bean
+    public PlatformTransactionManager transactionManager(DataSource dataSource)
+    {
+        return new DataSourceTransactionManager(dataSource);
+    }
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder(8);
+    }
+
+    @Bean
+    public MailSender mailSender(){
+        return new MailSenderImpl();
+    }
 }
