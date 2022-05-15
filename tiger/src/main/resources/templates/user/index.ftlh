@@ -1,4 +1,5 @@
 <#import "../patterns/common.ftlh" as common>
+<#include "../patterns/creaditionals.ftlh"/>
 
 <@common.page>
 
@@ -53,12 +54,13 @@
                                 </a>
                                 <div class="down-content">
                                     <a href="/cars/${car.id}"><h4>${car.name}
-                                            - ${carinfoservice.getonecarinfobycarid(car.id).model}</h4></a>
+                                            - <#if carinfoservice.getonecarinfobycarid(car.id)??></#if></h4></a>
 
                                     <h6><small>
                                             <del> $${car.price}</del>
                                         </small> $${car.price-120}</h6>
 
+                                    <#if carinfoservice.getonecarinfobycarid(car.id)??>
                                     <p>${carinfoservice.getonecarinfobycarid(car.id).power} hp
                                         &nbsp;/&nbsp; ${carinfoservice.getonecarinfobycarid(car.id).fuel}
                                         &nbsp;/&nbsp; ${carinfoservice.getonecarinfobycarid(car.id).first_reg} &nbsp;/&nbsp; ${carinfoservice.getonecarinfobycarid(car.id).model}</p>
@@ -74,6 +76,11 @@
                                                     class="fa fa-cog"></i> ${carinfoservice.getonecarinfobycarid(car.id).gearbox}
                                         </strong>
                                     </small>
+
+                                    </#if>
+                                    <#if user??>
+                                        <a class="btn btn-dark" href="/basket/add/${car.id}/${currentUserId}">Add</a>
+                                    </#if>
                                 </div>
                             </div>
                         </div>

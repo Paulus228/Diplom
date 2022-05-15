@@ -21,9 +21,8 @@ public class BasketRepositoryImpl implements BasketRepository {
     }
 
     @Override
-    public boolean delete(Basket basket, Long id_user) {
-        return databaseMysql.update("DELETE FROM basketcar WHERE ctid IN(SELECT ctid FROM basketcar" +
-                " WHERE id_basket_user=(SELECT id_basket FROM basketuser WHERE id_user = ?) AND id_car=? LIMIT 1",id_user,basket.getId_car())>0;
+    public boolean delete(Long id) {
+        return databaseMysql.update("DELETE FROM basketcar WHERE id=?",id)>0;
     }
 
     @Override

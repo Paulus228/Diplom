@@ -56,7 +56,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Type</span>
 
-                                    <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).type}</strong>
+                                    <#if carinfoservice.getonecarinfobycarid(car.id)??><strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).type}</strong></#if>
                                 </div>
                             </li>
 
@@ -64,7 +64,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Make</span>
 
-                                    <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).make}</strong>
+                                    <#if carinfoservice.getonecarinfobycarid(car.id)??> <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).make}</strong></#if>
                                 </div>
                             </li>
 
@@ -72,7 +72,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left"> Model</span>
 
-                                    <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).model}</strong>
+                                    <#if carinfoservice.getonecarinfobycarid(car.id)??> <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).model}</strong></#if>
                                 </div>
                             </li>
 
@@ -80,7 +80,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">First registration</span>
 
-                                    <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).first_reg}</strong>
+                                     <#if carinfoservice.getonecarinfobycarid(car.id)??><strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).first_reg}</strong></#if>
                                 </div>
                             </li>
 
@@ -88,7 +88,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Mileage</span>
 
-                                    <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).mileage}
+                                     <#if carinfoservice.getonecarinfobycarid(car.id)??><strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).mileage}</#if>
                                         km</strong>
                                 </div>
                             </li>
@@ -97,7 +97,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Fuel</span>
 
-                                    <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).fuel}</strong>
+                                     <#if carinfoservice.getonecarinfobycarid(car.id)??><strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).fuel}</strong></#if>
                                 </div>
                             </li>
 
@@ -105,7 +105,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Engine size</span>
 
-                                    <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).enginesize}
+                                     <#if carinfoservice.getonecarinfobycarid(car.id)??><strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).enginesize}</#if>
                                         cc</strong>
                                 </div>
                             </li>
@@ -114,7 +114,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Power</span>
 
-                                    <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).power}
+                                     <#if carinfoservice.getonecarinfobycarid(car.id)??><strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).power}</#if>
                                         hp</strong>
                                 </div>
                             </li>
@@ -124,7 +124,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Gearbox</span>
 
-                                    <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).gearbox}</strong>
+                                     <#if carinfoservice.getonecarinfobycarid(car.id)??><strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).gearbox}</strong></#if>
                                 </div>
                             </li>
 
@@ -132,7 +132,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Number of seats</span>
 
-                                    <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).numberseat}</strong>
+                                    <#if carinfoservice.getonecarinfobycarid(car.id)??> <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).numberseat}</strong></#if>
                                 </div>
                             </li>
 
@@ -140,7 +140,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Doors</span>
 
-                                    <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).doors}</strong>
+                                    <#if carinfoservice.getonecarinfobycarid(car.id)??> <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).doors}</strong></#if>
                                 </div>
                             </li>
 
@@ -148,7 +148,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Color</span>
 
-                                    <strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).color}</strong>
+                                     <#if carinfoservice.getonecarinfobycarid(car.id)??><strong class="pull-right">${carinfoservice.getonecarinfobycarid(car.id).color}</strong></#if>
                                 </div>
                             </li>
                         </ul>

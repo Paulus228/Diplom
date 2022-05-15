@@ -35,7 +35,9 @@
     </div>
     <!-- ***** Preloader End ***** -->
     <#include "navbar.ftlh"/>
+
          <#nested>
+
     <div style="margin-bottom: 50px">
 
     </div>

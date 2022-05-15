@@ -50,15 +50,20 @@
                                     </a>
                                     <div class="down-content">
                                         <a href="/cars/${car.id}"><h4>${car.name}
-                                                - ${carinfoservice.getonecarinfobycarid(car.id).model}</h4></a>
+                                                <#if carinfoservice.getonecarinfobycarid(car.id)??>
+                                                    -${carinfoservice.getonecarinfobycarid(car.id).model}
+                                            </#if>
+                                            </h4></a>
                                         <h6><small>
                                                 <del> $${car.price}</del>
                                             </small> $${car.price-120}</h6>
-
+                                        <#if carinfoservice.getonecarinfobycarid(car.id)??>
                                         <p>${carinfoservice.getonecarinfobycarid(car.id).power} hp
                                             &nbsp;/&nbsp; ${carinfoservice.getonecarinfobycarid(car.id).fuel}
                                             &nbsp;/&nbsp; ${carinfoservice.getonecarinfobycarid(car.id).first_reg}
                                             &nbsp;/&nbsp; ${carinfoservice.getonecarinfobycarid(car.id).model}</p>
+                                        </#if>
+                                        <#if carinfoservice.getonecarinfobycarid(car.id)??>
                                         <small>
                                             <strong title="Author"><i
                                                         class="fa fa-dashboard"></i> ${carinfoservice.getonecarinfobycarid(car.id).mileage}
@@ -70,6 +75,7 @@
                                                         class="fa fa-cog"></i> ${carinfoservice.getonecarinfobycarid(car.id).gearbox}
                                             </strong>
                                         </small>
+                                        </#if>
                                     </div>
                                 </div>
                             </div>

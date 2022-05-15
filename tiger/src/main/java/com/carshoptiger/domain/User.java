@@ -51,7 +51,7 @@ public class User implements UserDetails {
     }
 
     public boolean isAdmin(){
-        return this.roles==Role.ADMIN;
+        return this.roles==Role.ADMIN || this.roles==Role.MANAGER;
     }
 
     public boolean isManager(){

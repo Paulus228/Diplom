@@ -40,13 +40,13 @@ public class BasketServiceImpl implements BasketService {
     }
 
     @Override
-    public boolean delete(Basket basket, Long id_user) {
+    public boolean delete(Basket basket) {
         boolean result_delete;
-        User userIsExists = userService.getuserbyid(id_user);
+        User userIsExists = userService.getuserbyid(basket.getId_basket_user());
         Car carIsExists = carService.getonecar(basket.getId_car());
 
         if (userIsExists != null && carIsExists != null) {
-            result_delete = basketRepository.delete(basket, id_user);
+            result_delete = basketRepository.delete(basket.getId());
         } else {
             result_delete = false;
         }
