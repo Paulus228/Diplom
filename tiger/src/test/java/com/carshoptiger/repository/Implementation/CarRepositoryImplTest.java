@@ -1,6 +1,6 @@
-package test.carshoptiger.repository.Implementation;
+package com.carshoptiger.repository.Implementation;
 
-
+import com.carshoptiger.config.BeansConfig;
 import com.carshoptiger.domain.Car;
 import com.carshoptiger.repository.API.CarRepository;
 import org.junit.Assert;
@@ -13,7 +13,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import test.carshoptiger.config.BeansConfig;
 
 import java.sql.Date;
 
@@ -22,6 +21,7 @@ import java.sql.Date;
 @ContextConfiguration(classes = BeansConfig.class)
 @WebAppConfiguration
 @ComponentScan("com.sportguru.dao.impl")
+@Sql(value = {"classpath:/scripts/init_sql_data.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @Sql(value = {"classpath:/scripts/destroy_sql_data.sql"}, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 public class CarRepositoryImplTest {
 
@@ -46,4 +46,37 @@ public class CarRepositoryImplTest {
     }
 
 
+    @Test
+    public void UpdateCar() {
+        Car car = carRepository.getonecar(775L);
+        car.setName("TEST");
+
+        carRepository.updatecar(car);
+
+        Assert.assertEquals("TEST", carRepository.getonecar(775L).getName());
+    }
+
+    @Test
+    public void DeleteCar() {
+        boolean result_delete = carRepository.deletecar(776L);
+
+        Assert.assertTrue(result_delete);
+    }
+
+    @Test
+    public void GetOneCar() {
+        Car car = carRepository.getonecar(775L);
+
+        Assert.assertNotNull(car);
+    }
+
+    @Test
+    public void FindAllCar() {
+        Assert.assertEquals(2, carRepository.findAllCar().size());
+    }
+
+    @Test
+    public void findCarByName() {
+        Assert.assertEquals(2,carRepository.findCarByName("TestCar").size());
+    }
 }

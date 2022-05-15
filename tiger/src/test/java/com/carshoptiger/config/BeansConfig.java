@@ -1,4 +1,4 @@
-package test.carshoptiger.config;
+package com.carshoptiger.config;
 
 import com.carshoptiger.repository.API.*;
 import com.carshoptiger.repository.Implementation.*;
@@ -122,3 +122,4 @@ public class BeansConfig {
         return new MailSenderImpl();
     }
 }
+
