@@ -79,3 +79,12 @@ SELECT 779, 'delete','test','test2','1231','Country','acivate2',
     NOT EXISTS (
         SELECT id FROM orders WHERE id = 779
     );
+
+insert into carinfo(id, id_car, type, make, model, first_reg, mileage, fuel,
+                    enginesize, power, gearbox, numberseat, doors, color)
+SELECT 779, 775,'test','test2','1231','2020-05-15',1231,
+       'email',123,123,'test',12,'test','test'
+    WHERE
+    NOT EXISTS (
+        SELECT id FROM carinfo WHERE id = 779
+    );

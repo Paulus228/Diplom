@@ -23,7 +23,7 @@ public class CarInfoRepositoryImpl implements CarInfoRepository {
 
     @Override
     public boolean updatecarinfo(CarInfo carInfo) {
-        return databaseMysql.update(" UPDATE carinfo type=?, make=?, model=?, first_reg=?," +
+        return databaseMysql.update(" UPDATE carinfo SET type=?, make=?, model=?, first_reg=?," +
                         " mileage=?, fuel=?, enginesize=?, power=?, gearbox=?, numberseat=?, doors=?, color=? WHERE id=?",
                 carInfo.getType(),carInfo.getMake(),carInfo.getModel(),carInfo.getFirst_reg(),carInfo.getMileage(),
                 carInfo.getFuel(),carInfo.getEnginesize(),carInfo.getPower(),carInfo.getGearbox(),
