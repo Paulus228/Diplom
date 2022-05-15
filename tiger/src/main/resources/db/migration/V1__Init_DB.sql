@@ -1,6 +1,6 @@
 create table if not exists role(
-	user_id int,
-    role_name varchar(255)
+	id_role int,
+    role_name varchar(255) primary key
 );
 
 create table if not exists  user(
@@ -9,8 +9,9 @@ create table if not exists  user(
     soname varchar(255),
     username varchar(255),
     password varchar(255),
-    roles varchar(255)
-);
+    roles varchar(255),
+    FOREIGN KEY (roles) REFERENCES role (role_name) on delete cascade
+    );
 
 
 create table if not exists  contacts(

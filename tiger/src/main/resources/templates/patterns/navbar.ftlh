@@ -33,7 +33,7 @@
                     <li class="nav-item"><a class="nav-link" href="/aboutus">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="/contact/">Contact Us</a></li>
                     <#if user??>
-                        <li class="nav-item"><a class="nav-link" href="/basket/${currentUserId}">Cart</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/basket/${currentUserId}">Basket</a></li>
                     </#if>
                     <li class="nav-item">
                         <#if user??>

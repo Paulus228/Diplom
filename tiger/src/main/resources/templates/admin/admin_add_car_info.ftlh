@@ -139,6 +139,7 @@
                             <div class="card">
                                 <div class="card-body">
                                         <form method="post" action="/admin/carlist/carinfo/add/${idcar}">
+                                            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                                             <div class="m-sm-4">
                                                 <div class="mb-3">
                                                     <label class="form-label">Type:</label>
@@ -204,8 +205,8 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Doors:</label>
-                                                    <input required="required" maxlength="255" minlength="5"
-                                                           class="form-control form-control-lg" type="text" name="doors"
+                                                    <input required="required" min="1" max="5"
+                                                           class="form-control form-control-lg" type="number" name="doors"
                                                     />
                                                 </div>
                                                 <div class="mb-3">

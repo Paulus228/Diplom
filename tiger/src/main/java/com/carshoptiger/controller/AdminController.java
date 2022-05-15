@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/admin")
-@PreAuthorize("hasAnyAuthority('ADMIN','MANAGER')")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class AdminController {
 
     @Autowired
@@ -69,6 +69,7 @@ public class AdminController {
         return "admin/admin_add_car";
     }
 
+
     @PostMapping("/carlist/add")
     public String caradd(@RequestParam(name = "name") String name,
                          @RequestParam(name = "price") String price,
@@ -91,6 +92,7 @@ public class AdminController {
             return "admin/admin_add_car";
         }
     }
+
 
     @GetMapping("/carlist/edit/{id}")
     public String careditpage(@PathVariable("id") String id, Model model) {
@@ -135,6 +137,7 @@ public class AdminController {
         return "redirect:/admin/carlist";
     }
 
+
     @GetMapping("/carlist/carphotos/{id}")
     public String carphotolist(@PathVariable("id")String id,
                                Model model){
@@ -143,12 +146,14 @@ public class AdminController {
         return "admin/admin_list_of_car_photos";
     }
 
+
     @GetMapping("/carlist/carphotos/add/{id}")
     public String addcarphotopage(@PathVariable("id")String id,
                                   Model model){
         model.addAttribute("carid",id);
         return "admin/admin_add_car_photo";
     }
+
 
     @PostMapping("/carlist/carphotos/add/{id}")
     public String addcarphoto(@PathVariable("id")String id,
@@ -175,13 +180,13 @@ public class AdminController {
         return "admin/admin_list_of_car_extract";
     }
 
-    @GetMapping("/carlist/extracts/add/{id}")
+     @GetMapping("/carlist/extracts/add/{id}")
     public String carextractaddpage(@PathVariable("id")String id, Model model){
         model.addAttribute("carid",id);
         return "admin/admin_add_car_extract";
     }
 
-    @PostMapping("/carlist/extracts/add/{id}")
+     @PostMapping("/carlist/extracts/add/{id}")
     public String carextractadd(@PathVariable("id")String carid,
                                 @RequestParam(name="extract")String extract){
         CarExtract carExtract = new CarExtract();
@@ -192,7 +197,8 @@ public class AdminController {
         return "redirect:/admin/carlist/extracts/"+carid;
     }
 
-    @GetMapping("/carlist/extacts/remove/{id}/{idcar}")
+
+     @GetMapping("/carlist/extacts/remove/{id}/{idcar}")
     public String removecarextract(@PathVariable("id")String id,
                                    @PathVariable("idcar")String carid){
 
@@ -201,7 +207,8 @@ public class AdminController {
         return "redirect:/admin/carlist/extracts/"+carid;
     }
 
-    @GetMapping("/carlist/carinfo/{id}")
+
+     @GetMapping("/carlist/carinfo/{id}")
     public String carinfo(@PathVariable("id")String id,
                           Model model){
         CarInfo carInfo = carInfoService.getonecarinfobycarid(Long.valueOf(id));
@@ -210,13 +217,15 @@ public class AdminController {
         return "admin/admin_car_info";
     }
 
-    @GetMapping("/carlist/carinfo/add/{id}")
+
+     @GetMapping("/carlist/carinfo/add/{id}")
     public String carinfoaddpage(@PathVariable("id")String id, Model model){
         model.addAttribute("idcar",id);
         return "admin/admin_add_car_info";
     }
 
-    @PostMapping("/carlist/carinfo/add/{id}")
+
+     @PostMapping("/carlist/carinfo/add/{id}")
     public String carinfoadd(@PathVariable("id")String id, Model model,
                              @RequestParam("type")String type,
                              @RequestParam("make")String make,
@@ -249,49 +258,57 @@ public class AdminController {
         return "redirect:/admin/carlist/carinfo/" + id;
     }
 
-    @GetMapping("/contactlist/")
+
+     @GetMapping("/contactlist/")
     public String contactlist(Model model) {
         model.addAttribute("contactlist", contactService.findAllContacts());
         return "admin/admin_list_of_contacts";
     }
 
-    @GetMapping("/contactlist/remove/{id}")
+
+     @GetMapping("/contactlist/remove/{id}")
     public String contactremove(@PathVariable("id") String id) {
         contactService.deletecontact(Long.valueOf(id));
         return "redirect:/admin/contactlist/";
     }
 
-    @GetMapping("/testimonalslist/")
+
+     @GetMapping("/testimonalslist/")
     public String testimonalslist(Model model) {
         model.addAttribute("testimonalslist", testimonalsService.findAllTestimonals());
         return "admin/admin_list_of_testimonals";
     }
 
-    @GetMapping("/testimonalslist/remove/{id}")
+
+     @GetMapping("/testimonalslist/remove/{id}")
     public String testimonalsremove(@PathVariable("id") String id) {
         testimonalsService.deletetestimonals(Long.valueOf(id));
         return "redirect:/admin/testimonalslist/";
     }
 
-    @GetMapping("/userlist/")
+
+     @GetMapping("/userlist/")
     public String userlist(Model model) {
         model.addAttribute("userlist", userService.findAllUser());
         return "admin/admin_list_of_user";
     }
 
-    @GetMapping("/userlist/remove/{id}")
+
+     @GetMapping("/userlist/remove/{id}")
     public String userremove(@PathVariable("id") String id) {
         userService.deleteuser(userService.getuserbyid(Long.valueOf(id)));
         return "redirect:/admin/userlist/";
     }
 
-    @GetMapping("/userlist/update/{id}")
+
+     @GetMapping("/userlist/update/{id}")
     public String userupdatepage(@PathVariable("id") String id, Model model) {
         model.addAttribute("updateuser", userService.getuserbyid(Long.valueOf(id)));
         return "admin/admin_edit_user";
     }
 
-    @PostMapping("/userlist/update/{id}")
+
+     @PostMapping("/userlist/update/{id}")
     public String userupdate(@PathVariable("id") String id, @RequestParam(name = "role") String role) {
         User user_update = userService.getuserbyid(Long.valueOf(id));
         user_update.setRoles(Role.valueOf(role));
@@ -299,26 +316,30 @@ public class AdminController {
         return "redirect:/admin/userlist/";
     }
 
-    @GetMapping("/orderlist/")
+
+     @GetMapping("/orderlist/")
     public String orderlist(Model model) {
         model.addAttribute("orderlist", orderSerivce.findAllOrder());
         model.addAttribute("carservice", carService);
         return "admin/admin_list_of_orders";
     }
 
-    @GetMapping("/orderlist/remove/{id}")
+
+     @GetMapping("/orderlist/remove/{id}")
     public String orderremove(@PathVariable("id") String id, Model model) {
         orderSerivce.deleteorder(orderSerivce.getorderbyid(Long.valueOf(id)));
         return "redirect:/admin/orderlist/";
     }
 
-    @GetMapping("/orderlist/update/{id}")
+
+     @GetMapping("/orderlist/update/{id}")
     public String orderupdatepage(@PathVariable(name = "id") String id, Model model) {
         model.addAttribute("orderupdate", orderSerivce.getorderbyid(Long.valueOf(id)));
         return "admin/admin_edit_order";
     }
 
-    @PostMapping("/orderlist/update/{id}")
+
+     @PostMapping("/orderlist/update/{id}")
     public String orderupdate(@PathVariable("id") String id,
                               @RequestParam("country") String country,
                               @RequestParam("city") String city,
@@ -338,13 +359,15 @@ public class AdminController {
         return "redirect:/admin/orderlist/";
     }
 
-    @GetMapping("/orderlist/one/{id}")
+
+     @GetMapping("/orderlist/one/{id}")
     public String orderonepage(@PathVariable("id")String id, Model model){
         model.addAttribute("orderone",orderSerivce.getorderbyid(Long.valueOf(id)));
         return "admin/admin_one_order";
     }
 
-    @GetMapping("/help")
+
+     @GetMapping("/help")
     public String adminhelp(){
         return "admin/admin_help";
     }

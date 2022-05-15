@@ -1,4 +1,5 @@
 <#import "../patterns/common.ftlh" as common>
+<#include "../patterns/creaditionals.ftlh"/>
 
 <@common.page>
     <!-- Page Content -->
@@ -50,6 +51,7 @@
                 </div>
 
                 <div class="col-md-6">
+                    <a class="btn btn-dark" style="float: right" href="/basket/add/${car.id}/${currentUserId}">Buy</a>
                     <form action="#" method="post" class="form">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
@@ -188,7 +190,6 @@
                         <#else>
                             <p>No has extract.</p>
                         </#if>
-
                     </div>
                 </div>
             </div>

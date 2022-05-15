@@ -25,12 +25,6 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <!-- How to change your own map point
-                        1. Go to Google Maps
-                        2. Click on your location point
-                        3. Click "Share" and choose "Embed map" tab
-                        4. Copy only URL and paste it within the src="" field below
-                    -->
                     <div id="map">
                         <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="330px" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>

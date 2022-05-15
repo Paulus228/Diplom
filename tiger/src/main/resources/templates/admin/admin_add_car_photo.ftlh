@@ -139,6 +139,7 @@
                                 <div class="card-body">
                                     <div class="m-sm-4">
                                         <form method="post" action="/admin/carlist/carphotos/add/${carid}/">
+                                            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                                             <div class="mb-3">
                                                 <label class="form-label">Photo url</label>
                                                 <input required="required" maxlength="500" minlength="5" class="form-control form-control-lg" type="text" name="photo_url"

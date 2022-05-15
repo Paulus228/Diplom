@@ -5,7 +5,6 @@ import com.carshoptiger.domain.Order;
 import com.carshoptiger.repository.API.OrderRepository;
 import com.carshoptiger.service.API.CarService;
 import com.carshoptiger.service.API.OrderSerivce;
-import com.carshoptiger.util.validators.OrderValidator;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
@@ -22,11 +21,7 @@ public class OrderServiceImpl implements OrderSerivce {
         boolean result_save;
         Car carIsexists = carService.getonecar(order.getId_car());
         if(carIsexists!=null){
-            if(OrderValidator.OrderValidation(order)){
                 result_save = orderRepository.saveorder(order);
-            }else{
-                result_save = false;
-            }
         }else{
             result_save = false;
         }

@@ -16,7 +16,6 @@
                 <th scope="col">Price</th>
                 <th scope="col">Car date added</th>
                 <th scope="col">Checkout order</th>
-                <th scope="col">Status order</th>
                 <th scope="col">Delete</th>
             </tr>
             </thead>
@@ -29,9 +28,8 @@
                 <td><a href="/cars/${bl.id_car}">${carservice.getonecar(bl.id_car).name}</a></td>
                 <td><strong>${carservice.getonecar(bl.id_car).price}</strong></td>
                 <td>${carservice.getonecar(bl.id_car).date_add}</td>
-                <td><a href="#" class="btn btn-dark">Order now</a></td>
-                <td>In Process</td>
-                <td><a class="btn btn-danger" href="/basket/delete/${bl.id_car}/${currentUserId}/${bl.id}">Delete</a></td>
+                <td><a href="/basket/order/${bl.id_car}/${bl.id}" class="btn btn-dark">Order now</a></td>
+                 <td><a class="btn btn-danger" href="/basket/delete/${bl.id_car}/${currentUserId}/${bl.id}">Delete</a></td>
             </tr>
             </#list>
                 <#else>

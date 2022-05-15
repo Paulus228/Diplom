@@ -1,4 +1,5 @@
 <#import "../patterns/common.ftlh" as common>
+<#include "../patterns/creaditionals.ftlh"/>
 
 <@common.page>
     <!-- Page Content -->
@@ -76,6 +77,7 @@
                                             </strong>
                                         </small>
                                         </#if>
+                                        <a class="btn btn-dark" href="/basket/add/${car.id}/${currentUserId}">Buy</a>
                                     </div>
                                 </div>
                             </div>

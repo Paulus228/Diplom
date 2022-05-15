@@ -139,6 +139,7 @@
                                 <div class="card-body">
                                     <div class="m-sm-4">
                                         <form method="post" action="/admin/userlist/update/${updateuser.id}">
+                                            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                                             <div class="mb-3">
                                                 <label class="form-label">User role:</label>
                                                 <select  name="role" class="form-select" aria-label="Default select example" required="required">
