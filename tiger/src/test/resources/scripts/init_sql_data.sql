@@ -69,3 +69,13 @@ SELECT 779, 'delete','test','test2','test','USER','acivate2','email','2020-05-12
     NOT EXISTS (
         SELECT id FROM user WHERE id = 779
     );
+
+insert into orders(id, name, soname, faname, priceorder, country, city,
+                   address, contactphone, commentorder, date_order,
+                   id_car, status_order)
+SELECT 779, 'delete','test','test2','1231','Country','acivate2',
+       'email','123123','asdasd','2020-05-12',775,'proccess'
+    WHERE
+    NOT EXISTS (
+        SELECT id FROM orders WHERE id = 779
+    );
