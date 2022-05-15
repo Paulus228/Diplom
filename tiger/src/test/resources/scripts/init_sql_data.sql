@@ -26,3 +26,9 @@ SELECT 777, 775,'PhotoUrlDelete'
         SELECT id FROM carphoto WHERE id = 777
     );
 
+insert into contacts(id, fullname, email, subject, message, date_send)
+SELECT 777, 'Contacts','PhotoUrlDelete','contacts','Contact','2020-05-12'
+    WHERE
+    NOT EXISTS (
+        SELECT id FROM contacts WHERE id = 777
+    );
