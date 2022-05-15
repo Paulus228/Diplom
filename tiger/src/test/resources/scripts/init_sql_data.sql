@@ -11,3 +11,18 @@ SELECT 776, 'TestCarDelete',123.3,'2022-05-13',0,'Test description'
     NOT EXISTS (
         SELECT id FROM car WHERE id = 776
     );
+
+insert into carphoto(id, id_car, photourl)
+SELECT 776, 775,'PhotoUrlDelete'
+    WHERE
+    NOT EXISTS (
+        SELECT id FROM carphoto WHERE id = 776
+    );
+
+insert into carphoto(id, id_car, photourl)
+SELECT 777, 775,'PhotoUrlDelete'
+    WHERE
+    NOT EXISTS (
+        SELECT id FROM carphoto WHERE id = 777
+    );
+
