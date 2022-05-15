@@ -32,3 +32,10 @@ SELECT 777, 'Contacts','PhotoUrlDelete','contacts','Contact','2020-05-12'
     NOT EXISTS (
         SELECT id FROM contacts WHERE id = 777
     );
+
+insert into testimonals(id, fullname, message_testimonals, date_send)
+SELECT 777, 'Contacts','PhotoUrlDelete','2020-05-12'
+    WHERE
+    NOT EXISTS (
+        SELECT id FROM testimonals WHERE id = 777
+    );
