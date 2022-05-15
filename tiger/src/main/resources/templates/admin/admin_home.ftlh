@@ -1,3 +1,5 @@
+<#include "../patterns/creaditionals.ftlh"/>
+
 <!DOCTYPE html>
 <html lang="en">
 
