@@ -53,3 +53,19 @@ SELECT 778, 775,'Testtest'
     NOT EXISTS (
         SELECT id FROM carextract WHERE id = 778
     );
+
+insert into user(id, name, soname, username,
+                 password, roles, activationcode, email, date_add)
+SELECT 778, 'test','test','test','test','USER','acivate','email','2020-05-12'
+    WHERE
+    NOT EXISTS (
+        SELECT id FROM user WHERE id = 778
+    );
+
+insert into user(id, name, soname, username,
+                 password, roles, activationcode, email, date_add)
+SELECT 779, 'delete','test','test2','test','USER','acivate2','email','2020-05-12'
+    WHERE
+    NOT EXISTS (
+        SELECT id FROM user WHERE id = 779
+    );
